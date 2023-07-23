@@ -11,7 +11,7 @@ import Process from "../../components/Process";
 import Brands from "../../components/Brands";
 import LightLayout from "../../layouts/light";
 
-const Home1 = () => {
+const Home2 = () => {
   React.useEffect(() => {
     document.querySelector("body").classList.add("homepage");
   }, []);
@@ -30,4 +30,4 @@ const Home1 = () => {
   );
 };
 
-export default Home1;
+export default Home2;
