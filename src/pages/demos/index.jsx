@@ -91,8 +91,8 @@ const Demos = () => {
 						<div className="col-lg-12 static text-center">
 							<div className="capt mt-50">
 								<div className="parlx">
-									<h1 className="mb-10">Peace Interiors Template</h1>
-									<p className="ls10 text-u">Creative Architecture Interior Template.</p>
+									<h1 className="mb-10">Peace Interiors</h1>
+									<p className="ls10 text-u"></p>
 								</div>
 							</div>
 						</div>
@@ -376,12 +376,7 @@ const Demos = () => {
 											</a>
 										</Link>
 									</div>
-									<div className="copy-right">
-										<p>
-											© 2022, Arch Template. Made with passion by
-											<Link href="#">ThemesCamp</Link>.
-										</p>
-									</div>
+									<div className="copy-right"></div>
 								</div>
 							</div>
 						</div>
