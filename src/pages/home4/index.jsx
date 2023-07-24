@@ -11,6 +11,7 @@ import Testimonials2 from "../../components/Testimonials2";
 import WorkWithoutFilter from "../../components/Work-Without-Filter";
 import IntroWithHorizontal2 from "../../components/Intro-with-horizontal2";
 import AboutUs2 from "../../components/About-Us2";
+import Testimonials from "../../components/Testimonials1";
 
 const Home4 = () => {
 	React.useEffect(() => {
@@ -24,6 +25,7 @@ const Home4 = () => {
 				<Services5 />
 				{/* <AboutUs2 /> */}
 				<WorkWithoutFilter vis />
+				<Testimonials />
 				{/* <Testimonials2 /> */}
 				{/* <PricingTable /> */}
 				{/* <Team2 /> */}

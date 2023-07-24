@@ -32,7 +32,7 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 				<div className="container">
 					<Link href="#">
 						<a className={`logo ${logoClass && logoClass}`}>
-							<img src="/assets/img/logo.png" alt="logo" ref={logoRef} />
+							<img src="/assets/img/logo.png" alt="logo" ref={logoRef} style={{ width: "200px" }} />
 						</a>
 					</Link>
 
