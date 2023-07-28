@@ -1774,8 +1774,20 @@ body {
   -o-transition: opacity 0.5s, visibility 0.5s;
   transition: opacity 0.5s, visibility 0.5s;
 }
+
+.App {
+  font-family: sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  text-align: end;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  min-height: 100vh;
+}
+
 .cta__slider-item .caption .thin {
-  color: #b23a48;
+  /* color: #B23A48; */
   font-size: 20px;
   font-weight: 300;
   text-transform: uppercase;
