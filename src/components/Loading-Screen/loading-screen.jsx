@@ -42,7 +42,8 @@ const LoadingScreen = () => {
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString("Peace Interiors")
+                  .typeString("Peace")
+
                   .pauseFor(0)
                   .deleteAll()
                   .start();
