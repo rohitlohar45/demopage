@@ -11,21 +11,21 @@ import Process from "../../components/Process";
 import Brands from "../../components/Brands";
 import LightLayout from "../../layouts/light";
 
-const Home1 = () => {
-	React.useEffect(() => {
-		document.querySelector("body").classList.add("homepage");
-	}, []);
-	return (
-		<LightLayout>
-			<IntroWithVertical />
-			<Services2 />
-			<AboutUs2 />
-			<Portfolio2 />
-			<Process />
-			<Testimonials1 withBg />
-			{/*  */}
-		</LightLayout>
-	);
+const Home2 = () => {
+  React.useEffect(() => {
+    document.querySelector("body").classList.add("homepage");
+  }, []);
+  return (
+    <LightLayout>
+      <IntroWithVertical />
+      <Services2 />
+      <AboutUs2 />
+      <Portfolio2 />
+      <Process />
+      <Testimonials1 withBg />
+      {/*  */}
+    </LightLayout>
+  );
 };
 
-export default Home1;
+export default Home2;

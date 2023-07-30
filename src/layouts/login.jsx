@@ -8,7 +8,15 @@ const Login = ({ children, logoClassText }) => {
 			<Head>
 				<link rel="stylesheet" href="/assets/css/style-light.css" />
 			</Head>
-			{children}
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					alignContent: "center",
+				}}
+			>
+				{children}
+			</div>
 		</>
 	);
 };

@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
-	const isPathAdmin = router.pathname.startsWith("/admin");
+	const isPathAdmin = router.pathname.startsWith("/admin") || router.pathname.includes("/login");
 
 	return (
 		<>

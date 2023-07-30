@@ -19,14 +19,17 @@ const LoginForm = () => {
 
 	useEffect(() => {
 		if (!isLoading && authUser) {
-			router.push("/");
+			router.push("/admin/dashboard");
 		}
 	}, [authUser, isLoading]);
 
 	const loginHandler = async () => {
 		if (!email || !password) return;
+		console.log("Hello");
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
+			router.push("/admin/dashboard");
+			console.log("Great");
 		} catch (error) {
 			console.error("An error occured", error);
 		}
@@ -42,7 +45,64 @@ const LoginForm = () => {
 
 	return (
 		<Login>
-			<main className="flex lg:h-[100vh]">
+			<section className="contact cont-map">
+				<div className="container" style={{ top: "30px !important" }}>
+					<div className="contact-form wow fadeInDown" data-wow-delay=".3s">
+						<form
+							id="contact-form"
+							method="post"
+							style={{ top: "0 !important", right: "-50px !important", width: "500px" }}
+							onSubmit={(e) => e.preventDefault()}
+						>
+							<div className="section-head">
+								<h6>Log In</h6>
+							</div>
+							<div className="bg-black/[0.05] text-white w-full py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 flex justify-center items-center gap-4 cursor-pointer group">
+								<FcGoogle size={22} />
+								<span
+									className="font-medium text-black group-hover:text-white"
+									onClick={signInWithGoogle}
+								>
+									Login with Google
+								</span>
+							</div>
+
+							<div className="messages"></div>
+
+							<div className="controls">
+								<div className="form-group">
+									<input
+										type="email"
+										name="email"
+										className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
+										onChange={(e) => setEmail(e.target.value)}
+										placeholder="Email"
+										required
+									/>
+								</div>
+
+								<div className="form-group">
+									<input
+										type="password"
+										placeholder="Password"
+										name="password"
+										className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
+										onChange={(e) => setPassword(e.target.value)}
+									/>
+								</div>
+
+								{/* <button type="submit" className="btn-curve btn-color">
+									<span>Login</span>
+								</button> */}
+								<button className="btn-curve btn-color" onClick={loginHandler}>
+									Sign in
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</section>
+			{/* <main className="flex lg:h-[100vh]">
 				<div className="w-full lg:w-[60%] p-8 md:p-14 flex items-center justify-center lg:justify-start">
 					<div className="p-8 w-[600px]">
 						<h1 className="text-6xl font-semibold">Login</h1>
@@ -53,15 +113,7 @@ const LoginForm = () => {
 							</Link>
 						</p>
 
-						<div className="bg-black/[0.05] text-white w-full py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 flex justify-center items-center gap-4 cursor-pointer group">
-							<FcGoogle size={22} />
-							<span
-								className="font-medium text-black group-hover:text-white"
-								onClick={signInWithGoogle}
-							>
-								Login with Google
-							</span>
-						</div>
+						
 
 						<form onSubmit={(e) => e.preventDefault()}>
 							<div className="mt-10 pl-1 flex flex-col">
@@ -75,12 +127,7 @@ const LoginForm = () => {
 							</div>
 							<div className="mt-10 pl-1 flex flex-col">
 								<label>Password</label>
-								<input
-									type="password"
-									name="password"
-									className="font-medium border-b border-black p-4 outline-0 focus-within:border-blue-400"
-									onChange={(e) => setPassword(e.target.value)}
-								/>
+								
 							</div>
 							<button
 								className="bg-black text-white w-44 py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90"
@@ -97,7 +144,7 @@ const LoginForm = () => {
 						backgroundImage: "url('/login-banner.jpg')",
 					}}
 				></div>
-			</main>
+			</main> */}
 		</Login>
 	);
 };

@@ -42,9 +42,11 @@ const AfterBefore = () => {
                 ></div>
                 <div id="before-image">
                   <img src="/assets/img/before.jpg" alt="before" />
+                  {/* Get the Demo Data => Before Img*/}
                 </div>
                 <div id="after-image">
                   <img src="/assets/img/after.jpg" alt="After" />
+                  {/* Get the Demo Data => After Img*/}
                 </div>
                 <div id="resizer" className="twentytwenty-handle">
                   <span className="twentytwenty-left-arrow"></span>

@@ -4,15 +4,22 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
-import { db } from "../../../firebase/firebase";
+import { db, projectStorage } from "../../../firebase/firebase";
 import { useAuth } from "../../../firebase/auth";
 import Login from "../../../layouts/login";
 
+import { collection, addDoc, query, getDocs } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+
 export default function ProfilePage() {
-	const [data, setData] = useState("nothing");
+	const [projects, setProjects] = useState([]);
 
 	const { signOut, authUser, isLoading } = useAuth();
 	const router = useRouter();
+
+	useEffect(() => {
+		console.log(authUser);
+	}, []);
 
 	useEffect(() => {
 		if (!isLoading && !authUser) {
@@ -20,21 +27,94 @@ export default function ProfilePage() {
 		}
 	}, [authUser, isLoading]);
 
-	const logout = async () => {
-		try {
-			await axios.get("/api/users/logout");
-			toast.success("Logout successful");
-			router.push("/login");
-		} catch (error) {
-			console.log(error.message);
-			toast.error(error.message);
-		}
+	const [name, setName] = useState("");
+	const [description, setDescription] = useState("");
+	const [file, setFile] = useState(null);
+
+	const handleFileChange = (event) => {
+		const selectedFile = event.target.files[0];
+		setFile(selectedFile);
 	};
 
-	const getUserDetails = async () => {
-		const res = await axios.get("/api/users/me");
-		console.log(res.data);
-		setData(res.data.data._id);
+	const fetchProjects = async () => {
+		const q = query(collection(db, "projects"));
+
+		// Execute the query and get a snapshot of the results.
+		const querySnapshot = await getDocs(q);
+
+		// Extract the data from each todo document and add it to the data array.
+		let data = [];
+		querySnapshot.forEach((project) => {
+			console.log(project.data());
+			data.push({ ...project.data(), id: project.id });
+		});
+
+		// Set the todos state with the data array.
+		setProjects(data);
+	};
+
+	useEffect(() => {
+		fetchProjects();
+	}, []);
+
+	const handleCreateProject = async () => {
+		try {
+			// Upload the selected file to Firebase storage
+			if (file) {
+				const storageRef = ref(projectStorage, file.name);
+				const uploadTask = uploadBytesResumable(storageRef, file);
+
+				uploadTask.on(
+					"state_changed",
+					(snapshot) => {
+						// Update progress if needed
+					},
+					(error) => {
+						// Handle errors during file upload
+						console.error("Error uploading file", error);
+					},
+					async () => {
+						// File upload successful
+						console.log("File upload successful");
+
+						// Get the download URL of the uploaded file
+						const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+						// Add the project to the Firestore "projects" collection
+						const newProject = {
+							name,
+							description,
+							imageUrl: downloadURL,
+						};
+						const projectRef = await addDoc(collection(db, "projects"), newProject);
+
+						console.log("Project created successfully with ID:", projectRef.id);
+
+						setProjects([...projects, newProject]);
+
+						// Clear input fields
+						setName("");
+						setDescription("");
+						setFile(null);
+					}
+				);
+			} else {
+				// If no file is selected, create the project without the image URL
+				const newProject = {
+					name,
+					description,
+				};
+				const projectRef = await addDoc(collection(db, "projects"), newProject);
+
+				console.log("Project created successfully with ID:", projectRef.id);
+
+				// Clear input fields
+				setName("");
+				setDescription("");
+			}
+		} catch (error) {
+			console.error("An error occurred while creating the project", error);
+		}
 	};
 
 	return (
@@ -43,23 +123,47 @@ export default function ProfilePage() {
 				<h1>Profile</h1>
 				<hr />
 				<p>Profile page</p>
-				<h2 className="p-1 rounded bg-green-500">
-					{data === "nothing" ? "Nothing" : <Link href={`/profile/${data}`}>{data}</Link>}
-				</h2>
+				<h2 className="p-1 rounded bg-green-500">{authUser?.username}</h2>
 				<hr />
-				<button
-					onClick={logout}
-					className="bg-blue-500 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-				>
-					Logout
-				</button>
-
-				<button
-					onClick={getUserDetails}
-					className="bg-green-800 mt-4 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-				>
-					GetUser Details
-				</button>
+				<div style={{ gap: 10 }}>
+					<button style={{ marginRight: "10px" }} onClick={signOut} className="btn-curve btn-color">
+						Logout
+					</button>
+				</div>
+				<div>
+					<div>
+						<input
+							type="text"
+							placeholder="Project Name"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+						<input
+							type="text"
+							placeholder="Project Description"
+							value={description}
+							onChange={(e) => setDescription(e.target.value)}
+						/>
+						<input type="file" onChange={handleFileChange} />
+						<button onClick={handleCreateProject}>Create Project</button>
+					</div>
+				</div>
+				<div>
+					{projects.map((project, i) => {
+						return (
+							<div key={i}>
+								<h3>{project.name}</h3>
+								<p>{project.description}</p>
+								<img
+									id="project-image"
+									style={{ height: "200px !important", width: "200px !important" }}
+									src={project.imageUrl}
+									alt=""
+								/>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</Login>
 	);
