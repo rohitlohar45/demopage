@@ -20,9 +20,7 @@ const WorkHeader = ({ title, content, center }) => {
                 )}
               </h2>
 
-              <p>
-                {content}
-              </p>
+              <p>{content}</p>
             </div>
           </div>
         </div>
