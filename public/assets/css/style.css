@@ -3992,7 +3992,6 @@ body {
     z-index: -1; }
 
 .contact .info .item {
-  border: 2px solid black;
   padding: 40px 20px;
   background: #212121;
   display: -webkit-box;
