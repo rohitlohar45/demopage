@@ -15,10 +15,10 @@ const ProjectIntro = () => {
 						<div className="text">
 							<p>
 								{/* Get the Demo Data => Description */}
-								"Where Inspiration Meets Home: Welcome to our Residential Interior Design Showcase,
+								Where Inspiration Meets Home: Welcome to our Residential Interior Design Showcase,
 								where impeccable craftsmanship and innovative designs transform houses into
 								personalized havens of style and comfort. Step inside and discover the art of living
-								beautifully."
+								beautifully.
 							</p>
 						</div>
 					</div>
