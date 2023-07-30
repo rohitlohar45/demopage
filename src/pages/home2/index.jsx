@@ -10,8 +10,9 @@ import IntroWithVertical from "../../components/Intro-with-vertical";
 import Process from "../../components/Process";
 import Brands from "../../components/Brands";
 import LightLayout from "../../layouts/light";
+import Contact from "../../components/Contact";
 
-const Home1 = () => {
+const Home2 = () => {
 	React.useEffect(() => {
 		document.querySelector("body").classList.add("homepage");
 	}, []);
@@ -24,8 +25,9 @@ const Home1 = () => {
 			<Process />
 			<Testimonials1 withBg />
 			{/*  */}
+			{/* <Contact /> */}
 		</LightLayout>
 	);
 };
 
-export default Home1;
+export default Home2;
