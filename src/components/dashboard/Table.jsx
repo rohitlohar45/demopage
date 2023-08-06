@@ -22,7 +22,7 @@ const TableComponent = ({
 
 	return (
 		<div>
-			<Table striped bordered hover>
+			<Table bordered hover>
 				<thead>
 					<tr>
 						{columns.map((column, index) => (
