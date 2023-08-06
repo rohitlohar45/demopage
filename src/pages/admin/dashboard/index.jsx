@@ -172,4 +172,45 @@ export default function ProfilePage() {
 			</Login>
 		</>
 	);
+	return (
+		<Login>
+			<div className="dashboard">
+				{/* Sidebar */}
+				<div className="sidebar">
+					<img src="/assets/img/logo-1.png" style={{ marginBottom: 20 }}></img>
+					<ul>
+						<li>Projects</li>
+						<li>Business Query</li>
+						<li>Feedback</li>
+						<li>Career Query</li>
+					</ul>
+				</div>
+
+				{/* Main Content */}
+				<div className="main-content">
+					<h1>Welcome to the Dashboard</h1>
+					<p>This is the main content area of your dashboard.</p>
+					<div style={{ display: "flex", gap: 5 }}>
+						{projects.map((project, i) => {
+							return (
+								<div key={i}>
+									<h3>{project.name}</h3>
+									<p>{project.description}</p>
+									<img
+										id="project-image"
+										style={{
+											height: "200px !important",
+											width: "200px !important",
+										}}
+										src={project.imageUrl}
+										alt=""
+									/>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		</Login>
+	);
 }
