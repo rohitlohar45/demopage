@@ -1,15 +1,84 @@
 /* Dashboard Container */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
 .dashboard {
   display: flex;
   height: 100vh;
 }
 
+.custom-button {
+  background-color: #b23a48 !important;
+  color: white;
+  border: none !important;
+}
+
+.custom-button:hover {
+  background-color: #fff !important;
+  color: #b23a48 !important;
+  border: none !important;
+}
+
+.primary-button {
+  background-color: blue !important;
+  color: white;
+  border: none !important;
+}
+
+.primary-button:hover {
+  background-color: #fff !important;
+  color: blue !important;
+  border: none !important;
+}
+
+.danger-button {
+  background-color: red !important;
+  color: white;
+  border: none !important;
+}
+
+.danger-button:hover {
+  background-color: #fff !important;
+  color: red !important;
+  border: none !important;
+}
+
+/* In your CSS file or styles section */
+.custom-modal {
+  width: 800px !important;
+  /* Adjust the width as needed */
+  margin: 0 auto;
+}
+
+.model-content {
+  width: 800px !important;
+  /* Adjust the width as needed */
+}
+
+
+.success-button {
+  background-color: green !important;
+  color: white;
+  border: none !important;
+}
+
+.success-button:hover {
+  background-color: #fff !important;
+  color: green !important;
+  border: none !important;
+}
+
 /* Sidebar Styles */
 .sidebar {
   width: 250px;
-  background-color: #333;
+  background-color: #b23a48;
   color: white;
   padding: 20px;
+  height: max-content;
   transition: width 0.3s ease;
 }
 
@@ -30,7 +99,8 @@
 }
 
 .sidebar li:hover {
-  background-color: #555;
+  background-color: #fff;
+  color: #b23a48;
 }
 
 /* Main Content Styles */

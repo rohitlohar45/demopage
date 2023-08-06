@@ -34,6 +34,12 @@ img {
   width: 100%;
   height: auto;
 }
+
+#project-image{
+  width: 200px !important;
+  height: 200px !important;
+} 
+
 span,
 a,
 a:hover {

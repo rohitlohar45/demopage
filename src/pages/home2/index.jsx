@@ -10,22 +10,24 @@ import IntroWithVertical from "../../components/Intro-with-vertical";
 import Process from "../../components/Process";
 import Brands from "../../components/Brands";
 import LightLayout from "../../layouts/light";
+import Contact from "../../components/Contact";
 
 const Home2 = () => {
-  React.useEffect(() => {
-    document.querySelector("body").classList.add("homepage");
-  }, []);
-  return (
-    <LightLayout>
-      <IntroWithVertical />
-      <Services2 />
-      <AboutUs2 />
-      <Portfolio2 />
-      <Process />
-      <Testimonials1 withBg />
-      {/*  */}
-    </LightLayout>
-  );
+	React.useEffect(() => {
+		document.querySelector("body").classList.add("homepage");
+	}, []);
+	return (
+		<LightLayout>
+			<IntroWithVertical />
+			<Services2 />
+			<AboutUs2 />
+			<Portfolio2 />
+			<Process />
+			<Testimonials1 withBg />
+			{/*  */}
+			{/* <Contact /> */}
+		</LightLayout>
+	);
 };
 
 export default Home2;
