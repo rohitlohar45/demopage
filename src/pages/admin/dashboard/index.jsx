@@ -10,7 +10,6 @@ import Login from "../../../layouts/login";
 
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
-
 export default function ProfilePage() {
 	const [projects, setProjects] = useState([]);
 
@@ -118,53 +117,59 @@ export default function ProfilePage() {
 	};
 
 	return (
-		<Login>
-			<div className="flex flex-col items-center justify-center min-h-screen py-2">
-				<h1>Profile</h1>
-				<hr />
-				<p>Profile page</p>
-				<h2 className="p-1 rounded bg-green-500">{authUser?.username}</h2>
-				<hr />
-				<div style={{ gap: 10 }}>
-					<button style={{ marginRight: "10px" }} onClick={signOut} className="btn-curve btn-color">
-						Logout
-					</button>
-				</div>
-				<div>
+		<>
+			<Login>
+				<div className="flex flex-col items-center justify-center min-h-screen py-2">
+					<h1>Profile</h1>
+					<hr />
+					<p>Profile page</p>
+					<h2 className="p-1 rounded bg-green-500">{authUser?.username}</h2>
+					<hr />
+					<div style={{ gap: 10 }}>
+						<button
+							style={{ marginRight: "10px" }}
+							onClick={signOut}
+							className="btn-curve btn-color"
+						>
+							Logout
+						</button>
+					</div>
 					<div>
-						<input
-							type="text"
-							placeholder="Project Name"
-							value={name}
-							onChange={(e) => setName(e.target.value)}
-						/>
-						<input
-							type="text"
-							placeholder="Project Description"
-							value={description}
-							onChange={(e) => setDescription(e.target.value)}
-						/>
-						<input type="file" onChange={handleFileChange} />
-						<button onClick={handleCreateProject}>Create Project</button>
+						<div>
+							<input
+								type="text"
+								placeholder="Project Name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+							<input
+								type="text"
+								placeholder="Project Description"
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+							<input type="file" onChange={handleFileChange} />
+							<button onClick={handleCreateProject}>Create Project</button>
+						</div>
+					</div>
+					<div>
+						{projects.map((project, i) => {
+							return (
+								<div key={i}>
+									<h3>{project.name}</h3>
+									<p>{project.description}</p>
+									<img
+										id="project-image"
+										style={{ height: "200px !important", width: "200px !important" }}
+										src={project.imageUrl}
+										alt=""
+									/>
+								</div>
+							);
+						})}
 					</div>
 				</div>
-				<div>
-					{projects.map((project, i) => {
-						return (
-							<div key={i}>
-								<h3>{project.name}</h3>
-								<p>{project.description}</p>
-								<img
-									id="project-image"
-									style={{ height: "200px !important", width: "200px !important" }}
-									src={project.imageUrl}
-									alt=""
-								/>
-							</div>
-						);
-					})}
-				</div>
-			</div>
-		</Login>
+			</Login>
+		</>
 	);
 }
