@@ -2,6 +2,10 @@ svg.CircularProgressbar {
   width: 110px;
   height: 110px;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 a,
 .nav-link,
 .works.filter-img .filtering .filter span {

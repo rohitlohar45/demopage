@@ -16,6 +16,7 @@
   box-sizing: border-box;
   outline: none;
   list-style: none;
+  
 }
 body {
   color: #191514;
@@ -61,6 +62,12 @@ h6 {
   margin: 0;
   line-height: 1.4;
   font-weight: 600;
+}
+
+
+#project-image{
+  width: 200px !important;
+  height: 200px !important;
 }
 p {
   /* color: #393939; */

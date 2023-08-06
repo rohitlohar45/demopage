@@ -34,11 +34,11 @@ const AfterBefore = () => {
                 <div className="overlay" />
                 <div
                   className="twentytwenty-before-label"
-                  data-content="Before"
+                  data-content="Without Light"
                 ></div>
                 <div
                   className="twentytwenty-after-label"
-                  data-content="After"
+                  data-content="With Light  "
                 ></div>
                 <div id="before-image">
                   <img src="/assets/img/before.jpg" alt="before" />

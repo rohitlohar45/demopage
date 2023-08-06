@@ -5,8 +5,13 @@ import LoadingScreen from "../components/Loading-Screen/loading-screen";
 import "../styles/globals.css";
 import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/scrollToTop";
+import { AuthUserProvider } from "../firebase/auth";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+	const router = useRouter();
+	const isPathAdmin = router.pathname.startsWith("/admin") || router.pathname.includes("/login");
+
 	return (
 		<>
 			<Head>
@@ -16,7 +21,15 @@ function MyApp({ Component, pageProps }) {
 
 			<Cursor />
 			<LoadingScreen />
-			<Component {...pageProps} />
+
+			{isPathAdmin ? (
+				<AuthUserProvider>
+					<Component {...pageProps} />
+				</AuthUserProvider>
+			) : (
+				<Component {...pageProps} />
+			)}
+
 			<ScrollToTop />
 
 			<Script id="wow" src="/assets/js/wow.min.js"></Script>
