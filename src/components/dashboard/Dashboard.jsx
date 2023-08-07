@@ -60,43 +60,12 @@ const Dashboard = ({
 				<AddEditProjectModal />
 			</div>
 
-			{/* <Row xs={1} md={2} className="row-cols-1 row-cols-md-3 g-4">
-				{filteredProjects.map((project, i) => (
-					<Col key={i}>
-						<ProjectCard project={project} onEdit={onEdit} onDelete={onDelete} />
-					</Col>
-				))}
-			</Row> */}
-			{/* <CardGroup>
-				{filteredProjects.map((project, i) => (
-					<div key={i} style={styles.projectWrapper}>
-						<ProjectCard project={project} onEdit={onEdit} onDelete={onDelete} />
-					</div>
-				))}
-			</CardGroup> */}
-
 			<TableComponent
 				data={projects}
 				columns={columns}
 				itemsPerPage={5}
 				currentPage={currentPage}
 				onPageChange={onPageChange}
-			/>
-
-			{/* <div style={styles.projectGrid}>
-				{filteredProjects.map((project, i) => (
-					<ProjectCard key={i} project={project} onEdit={onEdit} onDelete={onDelete} />
-				))}
-			</div> */}
-
-			<AddEditProjectModal
-				isOpen={showModal}
-				onClose={() => {
-					setSelectedProject(null);
-					setShowModal(false);
-				}}
-				project={selectedProject}
-				onSave={handleAddEditProject}
 			/>
 		</div>
 	);
