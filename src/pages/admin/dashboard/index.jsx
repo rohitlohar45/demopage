@@ -6,12 +6,12 @@ import { toast } from "react-hot-toast";
 import { useRouter } from "next/router";
 import { db, projectStorage } from "../../../firebase/firebase";
 import { useAuth } from "../../../firebase/auth";
-import Login from "../../../layouts/login";
+import Login from "../../../layouts/DashboardLayout";
 
 import { collection, addDoc, query, getDocs } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import Dashboard from "../../../components/dashboard/Dashboard";
-import DashboardLayout from "../../../layouts/login";
+import DashboardLayout from "../../../layouts/DashboardLayout";
 
 const data = [
 	{

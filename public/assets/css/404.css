@@ -1,7 +1,35 @@
+/* Dashboard Container */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+
+
 .dashboard {
   display: flex;
   height: 100vh;
 }
+
+/* pages/404.module.css */
+.container-not-found {
+  text-align: center;
+  padding: 2rem;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #d9534f;
+  /* Red color */
+}
+
+.message {
+  font-size: 1.2rem;
+  color: #333;
+  /* Dark gray color */
+}
+
 
 .custom-button {
   background-color: #b23a48 !important;

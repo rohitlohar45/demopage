@@ -1,21 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useEffect } from "react";
-import LightLayout from "../../layouts/light";
-import PageHeader from "../../components/Page-header";
-import ProjectIntro from "../../components/Project-Intro";
-import NextProject from "../../components/Next-Project";
-import ProjectVideo from "../../components/Project-Video";
-import AfterBefore from "../../components/After-Before";
-import Services3 from "../../components/Services3";
+import React, { useEffect, useState } from "react";
+import LightLayout from "../../../layouts/light";
+import PageHeader from "../../../components/Page-header";
+import ProjectIntro from "../../../components/Project-Intro";
+import NextProject from "../../../components/Next-Project";
+import AfterBefore from "../../../components/After-Before";
+import Services3 from "../../../components/Services3";
 import { useRouter } from "next/router";
 
 const ProjectDetails = () => {
 	const router = useRouter();
-	const { slug } = router.query;
+
+	const [data, setData] = useState({
+		name: "Project Name",
+		description:
+			"Where Inspiration Meets Home: Welcome to our Residential Interior Design Showcase, where impeccable craftsmanship and innovative designs transform houses into personalized havens of style and comfort. Step inside and discover the art of living beautifully.",
+	});
+	const { slug, item } = router.query;
 
 	useEffect(() => {
 		console.log("slug", slug);
-	}, [slug]);
+		console.log("item", item);
+	}, [slug, item]);
 
 	return (
 		<LightLayout>
@@ -28,7 +34,7 @@ const ProjectDetails = () => {
 				]}
 				image="/assets/img/portfolio/project1/bg.jpg" // Get the Demo data => Thumbnail
 			/>
-			<ProjectIntro />
+			<ProjectIntro project={data} />
 			<AfterBefore />
 			<section className="projdtal">
 				{" "}
@@ -52,7 +58,7 @@ const ProjectDetails = () => {
 			</section>
 
 			<Services3 />
-			<NextProject />
+			{/* <NextProject /> */}
 		</LightLayout>
 	);
 };
