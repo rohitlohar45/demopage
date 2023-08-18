@@ -4,7 +4,6 @@ import LightLayout from "../../layouts/light";
 import PageHeader from "../../components/Page-header";
 import ProjectIntro from "../../components/Project-Intro";
 import NextProject from "../../components/Next-Project";
-import ProjectVideo from "../../components/Project-Video";
 import AfterBefore from "../../components/After-Before";
 import Services3 from "../../components/Services3";
 import { useRouter } from "next/router";
@@ -52,7 +51,7 @@ const ProjectDetails = () => {
 			</section>
 
 			<Services3 />
-			<NextProject />
+			{/* <NextProject /> */}
 		</LightLayout>
 	);
 };
