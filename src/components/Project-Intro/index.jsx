@@ -8,12 +8,12 @@ const ProjectIntro = ({ project }) => {
 				<div className="row">
 					<div className="col-lg-3 col-md-4">
 						<div className="htit">
-							<h4>{project.name}</h4> {/* Get the Demo Data => Name*/}
+							<h4>{project?.name}</h4> {/* Get the Demo Data => Name*/}
 						</div>
 					</div>
 					<div className="col-lg-8 offset-lg-1 col-md-8 mb-30">
 						<div className="text">
-							<p>{project.description}</p>
+							<p>{project?.description}</p>
 						</div>
 					</div>
 

@@ -27,7 +27,7 @@ const ProjectDetails = () => {
 				]}
 				image="/assets/img/portfolio/project1/bg.jpg" // Get the Demo data => Thumbnail
 			/>
-			<ProjectIntro />
+			<ProjectIntro project={[{ name: "Project 1", description: "Demo" }]} />
 			<AfterBefore />
 			<section className="projdtal">
 				{" "}
