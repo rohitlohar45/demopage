@@ -19,19 +19,16 @@ const ProjectDetails = () => {
 	return (
 		<LightLayout>
 			<PageHeader
-				title="Luxury Furniture" // Get the Demo data =>Name
+				title="Luxury Furniture"
 				fullPath={[
-					// { id: 1, name: "home", url: "/" },
 					{ id: 2, name: "Works", url: "/work1" },
 					{ id: 3, name: "Work details", url: "/project-details" },
 				]}
-				image="/assets/img/portfolio/project1/bg.jpg" // Get the Demo data => Thumbnail
+				image="/assets/img/portfolio/project1/bg.jpg"
 			/>
 			<ProjectIntro project={[{ name: "Project 1", description: "Demo" }]} />
 			<AfterBefore />
 			<section className="projdtal">
-				{" "}
-				{/* Can implement mapping */}
 				<div className="justified-gallery">
 					<div className="row">
 						<a href="#" className="col-lg-4 col-xl-3 col-md-12">
@@ -51,7 +48,6 @@ const ProjectDetails = () => {
 			</section>
 
 			<Services3 />
-			{/* <NextProject /> */}
 		</LightLayout>
 	);
 };

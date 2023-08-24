@@ -29,42 +29,42 @@ const data = [
 		id: "8j6IFoNGHRnUOFlWVfEz",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
 		id: "w2LhHwfKSC92Rnb3tvlF",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
 		id: "w2LhHwfKSC92Rnb3tvlF",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
 		id: "w2LhHwfKSC92Rnb3tvlF",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
 		id: "w2LhHwfKSC92Rnb3tvlF",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
 		id: "w2LhHwfKSC92Rnb3tvlF",
 	},
 	{
-		description: "Aval Bawli G***",
+		description: "Demo description",
 		imageUrl:
 			"https://firebasestorage.googleapis.com/v0/b/peace-interiors.appspot.com/o/09.jpg?alt=media&token=05bdabac-d50a-41ea-9207-19bc34036dd4",
 		name: "Demo 2",
