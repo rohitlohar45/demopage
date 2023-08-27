@@ -43,7 +43,7 @@
 .custom-modal {
   width: 800px !important;
   /* Adjust the width as needed */
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .model-content {

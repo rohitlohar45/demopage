@@ -10,6 +10,8 @@ import ProjectForm from "./ProjectForm";
 function ProjectModal({ action = "Add" }) {
 	const [show, setShow] = useState(false);
 
+	const [projectData, setProjectData] = useState(null);
+
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 
@@ -38,14 +40,14 @@ function ProjectModal({ action = "Add" }) {
 					<Modal.Title>{action} Project</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<ProjectForm />
+					<ProjectForm setProjectData={setProjectData} />
 				</Modal.Body>
 				<Modal.Footer>
 					<Button className="btn btn-danger" onClick={handleClose}>
 						Close
 					</Button>
 					<Button className="btn btn-success" onClick={handleClose}>
-						Save Changes
+						{action == "Add" ? "Submit" : "Save Changes"}
 					</Button>
 				</Modal.Footer>
 			</Modal>
