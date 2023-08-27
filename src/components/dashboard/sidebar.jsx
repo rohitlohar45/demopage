@@ -1,32 +1,55 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
+import { FiLogOut, FiPackage, FiBriefcase, FiClipboard, FiMail } from "react-icons/fi"; // Import icons from react-icons
+import { useAuth } from "../../firebase/auth";
 
 const Sidebar = () => {
+	const router = useRouter();
+
+	const { signOut: logout } = useAuth();
+
+	if (router.pathname.includes("/login") || router.pathname.includes("/register")) {
+		return <></>;
+	}
+
 	return (
 		<div style={styles.sidebar} className="sidebar">
 			<img src="/assets/img/logo-1.png" style={styles.logo} alt="Logo" />
 			<ul style={styles.menu}>
 				<li style={styles.menuItem}>
 					<Link href={"/admin/dashboard"}>
-						<a>Projects</a>
+						<a>
+							<FiPackage style={styles.menuIcon} /> Projects
+						</a>
 					</Link>
 				</li>
 				<li style={styles.menuItem}>
 					<Link href={"/admin/business-queries"}>
-						<a>Business Queries</a>
+						<a>
+							<FiBriefcase style={styles.menuIcon} /> Business Queries
+						</a>
 					</Link>
 				</li>
 				<li style={styles.menuItem}>
 					<Link href={"/admin/feedback"}>
-						<a>Feedback</a>
+						<a>
+							<FiClipboard style={styles.menuIcon} /> Feedback
+						</a>
 					</Link>
 				</li>
 				<li style={styles.menuItem}>
 					<Link href={"/admin/career-queries"}>
-						<a>Career Query</a>
+						<a>
+							<FiMail style={styles.menuIcon} /> Career Query
+						</a>
 					</Link>
 				</li>
 			</ul>
+			<div style={styles.logout} onClick={logout}>
+				<FiLogOut style={styles.logoutIcon} />
+				Logout
+			</div>
 		</div>
 	);
 };
@@ -35,21 +58,37 @@ const styles = {
 	sidebar: {
 		display: "flex",
 		flexDirection: "column",
-		height: "100vh", // Set the sidebar height to 100% of the viewport height
-		padding: "20px",
+		height: "100vh",
+		padding: "30px",
+		justifyContent: "space-between",
 	},
 	logo: {
-		marginBottom: "20px",
+		marginBottom: "80px",
 	},
 	menu: {
-		flexGrow: 1, // Make the menu take up the remaining vertical space
+		flexGrow: 1,
 		listStyle: "none",
 		padding: 0,
 	},
 	menuItem: {
+		display: "flex",
+		alignItems: "center",
 		padding: "10px",
 		cursor: "pointer",
 		transition: "background-color 0.2s",
+	},
+	menuIcon: {
+		marginRight: "8px",
+	},
+	logout: {
+		marginTop: "auto",
+		display: "flex",
+		alignItems: "center",
+		cursor: "pointer",
+		transition: "background-color 0.2s",
+	},
+	logoutIcon: {
+		marginRight: "8px",
 	},
 };
 

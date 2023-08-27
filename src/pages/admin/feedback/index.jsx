@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardLayout from "../../../layouts/login";
+import DashboardLayout from "../../../layouts/DashboardLayout";
 
 const index = () => {
 	return (

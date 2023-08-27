@@ -1,25 +1,19 @@
 import React from "react";
 import Link from "next/link";
 
-const ProjectIntro = () => {
+const ProjectIntro = ({ project }) => {
 	return (
 		<section className="intro-section section-padding">
 			<div className="container">
 				<div className="row">
 					<div className="col-lg-3 col-md-4">
 						<div className="htit">
-							<h4>Name</h4> {/* Get the Demo Data => Name*/}
+							<h4>{project?.name}</h4> {/* Get the Demo Data => Name*/}
 						</div>
 					</div>
 					<div className="col-lg-8 offset-lg-1 col-md-8 mb-30">
 						<div className="text">
-							<p>
-								{/* Get the Demo Data => Description */}
-								Where Inspiration Meets Home: Welcome to our Residential Interior Design Showcase,
-								where impeccable craftsmanship and innovative designs transform houses into
-								personalized havens of style and comfort. Step inside and discover the art of living
-								beautifully.
-							</p>
+							<p>{project?.description}</p>
 						</div>
 					</div>
 

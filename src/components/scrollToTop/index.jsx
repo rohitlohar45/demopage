@@ -9,7 +9,12 @@ const ScrollToTop = () => {
 
 	const router = useRouter();
 
-	if (router.pathname.includes("/admin") || router.pathname.includes("/login")) {
+	if (
+		router.pathname.includes("/admin") ||
+		router.pathname.includes("/login") ||
+		router.pathname.includes("/register") ||
+		router.pathname.includes("/404")
+	) {
 		return (
 			<div className="progress-wrap cursor-pointer">
 				<svg className="progress-circle svg-content" width="0%" height="0%" viewBox="-1 -1 102 102">
