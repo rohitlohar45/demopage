@@ -19,6 +19,7 @@
   background-color: blue !important;
   color: white;
   border: none !important;
+  margin-right: 2.5px;
 }
 
 .primary-button:hover {
@@ -31,6 +32,7 @@
   background-color: red !important;
   color: white;
   border: none !important;
+  margin-right: 2.5px;
 }
 
 .danger-button:hover {
@@ -43,14 +45,13 @@
 .custom-modal {
   width: 800px !important;
   /* Adjust the width as needed */
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .model-content {
   width: 800px !important;
   /* Adjust the width as needed */
 }
-
 
 .success-button {
   background-color: green !important;
@@ -65,32 +66,34 @@
 }
 
 /* Sidebar Styles */
-.sidebar {
-  width: 250px;
-  background-color: #b23a48;
-  color: white;
-  padding: 20px;
-  height: max-content;
-  transition: width 0.3s ease;
+#sidebar {
+  margin-top: 10px;
+  margin-left: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  border-radius: 25px;
 }
 
-.sidebar:hover {
+#sidebar:hover {
   width: 300px;
 }
 
-.sidebar ul {
+#sidebar ul {
   list-style: none;
   padding: 0;
 }
 
-.sidebar li {
+#sidebar li {
   margin-bottom: 10px;
   cursor: pointer;
   padding: 10px;
   border-radius: 5px;
 }
 
-.sidebar li:hover {
+#sidebar li:hover {
   background-color: #fff;
   color: #b23a48;
 }

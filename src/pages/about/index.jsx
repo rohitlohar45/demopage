@@ -41,6 +41,7 @@ import Skills from "../../components/Skills2";
 import Testimonials from "../../components/Testimonials1";
 import Team from "../../components/Team1";
 import LightLayout from "../../layouts/light";
+import Timeline from "../../components/Timeline";
 
 const About = () => {
 	React.useEffect(() => {
@@ -60,6 +61,7 @@ const About = () => {
 			<Services />
 			<Testimonials bigTitle />
 			<Team />
+			<Timeline events={[]} />
 			<Skills />
 		</LightLayout>
 	);
