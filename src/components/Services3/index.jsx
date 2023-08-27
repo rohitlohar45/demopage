@@ -1,6 +1,21 @@
 import React from "react";
 import services3Data from "../../data/services3.json";
 import Link from "next/link";
+import Timeline from "../Timeline";
+
+const events = [
+	{
+		date: "January 2020",
+		title: "Event 1",
+		description: "Description of Event 1",
+	},
+	{
+		date: "February 2020",
+		title: "Event 2",
+		description: "Description of Event 2",
+	},
+	// Add more events here
+];
 
 const Services3 = ({ bigTitle, grid }) => {
 	return (
@@ -53,6 +68,8 @@ const Services3 = ({ bigTitle, grid }) => {
 						)
 					)}
 				</div>
+
+				{/* <Timeline events={events} /> */}
 			</div>
 		</section>
 	);
