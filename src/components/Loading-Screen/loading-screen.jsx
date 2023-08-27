@@ -3,9 +3,20 @@ import Script from "next/script";
 import loadingPace from "../../common/loadingPace";
 import appData from "../../data/app.json";
 import Typewriter from "typewriter-effect";
+import { useRouter } from "next/router";
 
 const LoadingScreen = () => {
+	const router = useRouter();
 	React.useEffect(() => {
+		if (
+			router.pathname.includes("/admin") ||
+			router.pathname.includes("/login") ||
+			router.pathname.includes("/register") ||
+			router.pathname.includes("/404")
+		) {
+			appData.showLoading = false;
+		}
+
 		let bodyEl = document.querySelector("body");
 		if (appData.showLoading) {
 			loadingPace();
@@ -39,16 +50,15 @@ const LoadingScreen = () => {
 							}}
 							className="logo"
 						/>
-						<Typewriter
-							onInit={(typewriter) => {
-								typewriter
-									.typeString("Peace")
-
-									.pauseFor(0)
-									.deleteAll()
-									.start();
-							}}
-						/>
+						<div style={{ display: "flex" }}>
+							<Typewriter
+								options={{
+									strings: ["Peace Interiors"],
+									autoStart: true,
+									loop: true,
+								}}
+							/>
+						</div>
 					</div>
 				</div>
 			</div>

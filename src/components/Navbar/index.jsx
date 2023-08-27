@@ -59,7 +59,11 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 									<a className="nav-link">Home</a>
 								</Link>
 							</li>
-
+							<li className="nav-item">
+								<Link href="/about">
+									<a className="nav-link">About Us</a>
+								</Link>
+							</li>
 							<li className="nav-item dropdown" onClick={handleDropdown}>
 								<span
 									className="nav-link dropdown-toggle"
@@ -68,32 +72,35 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									Market
+									Projects
 								</span>
 								<div className="dropdown-menu">
-									<Link href="#">
+									<Link href="/projects/residential">
 										<a className="dropdown-item">Residential</a>
 									</Link>
-									<Link href="#">
+									<Link href="/projects/commercial">
 										<a className="dropdown-item">Corporate & Commercial</a>
 									</Link>
-									<Link href="#">
+									<Link href="/projects/healthcare">
 										<a className="dropdown-item">Healthcare</a>
 									</Link>
-									<Link href="#">
+									<Link href="/projects/education">
 										<a className="dropdown-item">Education</a>
+									</Link>
+									<Link href="/projects/government">
+										<a className="dropdown-item">Government</a>
 									</Link>
 								</div>
 							</li>
 
 							<li className="nav-item">
-								<Link href="/about">
-									<a className="nav-link">About</a>
+								<Link href="/careers">
+									<a className="nav-link">Careers</a>
 								</Link>
 							</li>
 							<li className="nav-item">
 								<Link href="/contact">
-									<a className="nav-link">Contact</a>
+									<a className="nav-link">Contact Us</a>
 								</Link>
 							</li>
 						</ul>
