@@ -3,40 +3,45 @@ svg.CircularProgressbar {
   height: 110px;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 a,
 .nav-link,
 .works.filter-img .filtering .filter span {
   cursor: pointer;
 }
+
 .slick-prev,
 .slick-next {
   display: none !important;
 }
-.testimonials.grid .testim .slick-track .slick-active > div {
+
+.testimonials.grid .testim .slick-track .slick-active>div {
   position: relative;
   margin: 0 20px;
 }
+
 .testimonials.grid .testim .slick-track .item {
   margin: 0;
 }
+
 #before-after-slider {
   width: 100%;
   position: relative;
   overflow: hidden;
 }
+
 #before-after-slider img {
   all: unset;
   width: 100%;
 }
+
 #after-image {
   display: block;
 }
+
 .path a {
   text-transform: capitalize;
 }
+
 #before-image {
   position: absolute;
   height: 100%;
@@ -46,10 +51,12 @@ a,
   overflow: hidden;
   z-index: 2;
 }
+
 .contact .form input,
 .contact .form textarea {
   color: #fff;
 }
+
 .twentytwenty-handle:before,
 .twentytwenty-handle:after {
   content: " ";
@@ -64,6 +71,7 @@ a,
   height: 9999px;
   left: 50%;
 }
+
 .twentytwenty-left-arrow,
 .twentytwenty-right-arrow {
   width: 0;
@@ -73,9 +81,11 @@ a,
   top: 50%;
   margin-top: -6px;
 }
+
 .twentytwenty-handle:after {
   bottom: 100%;
 }
+
 .twentytwenty-handle {
   height: 38px;
   width: 38px;
@@ -94,16 +104,19 @@ a,
   z-index: 40;
   cursor: pointer;
 }
+
 .twentytwenty-left-arrow {
   border-right: 6px solid white;
   left: 50%;
   margin-left: -17px;
 }
+
 .twentytwenty-right-arrow {
   border-left: 6px solid white;
   right: 50%;
   margin-right: -17px;
 }
+
 #before-after-slider .overlay {
   content: "";
   position: absolute;
@@ -116,33 +129,41 @@ a,
   opacity: 0;
   transition: opacity 0.3s linear;
 }
+
 #before-after-slider:hover .overlay {
   opacity: 1;
 }
+
 .twentytwenty-before-label,
 .twentytwenty-after-label {
   opacity: 0;
 }
+
 .twentytwenty-before-label:before,
 .twentytwenty-after-label:before {
   content: attr(data-content);
 }
+
 .justified-gallery img {
   height: 100%;
   object-fit: cover;
   min-height: 335px;
 }
+
 .twentytwenty-before-label:before {
   left: 10px;
 }
+
 .twentytwenty-after-label:before {
   right: 10px;
 }
+
 a.col-lg-4.col-xl-3.col-md-6 {
   padding-left: 5px;
   padding-right: 5px;
   margin-bottom: 10px;
 }
+
 .twentytwenty-before-label,
 .twentytwenty-after-label {
   position: absolute;
@@ -151,9 +172,11 @@ a.col-lg-4.col-xl-3.col-md-6 {
   height: 100%;
   transition: opacity 0.3s linear;
 }
+
 a.col-lg-4.col-xl-3.col-md-12 {
   margin-bottom: 10px;
 }
+
 .twentytwenty-before-label:before,
 .twentytwenty-after-label:before {
   position: absolute;
@@ -170,36 +193,44 @@ a.col-lg-4.col-xl-3.col-md-12 {
   top: 50%;
   margin-top: -19px;
 }
+
 .justified-gallery {
   margin: 10px 0;
 }
+
 .pages-header .cont h1 {
   text-transform: capitalize;
 }
+
 .slick-dots li button {
   display: block !important;
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 .testimonials2 .slick-list {
   margin: 0 !important;
 }
+
 .slid-half .nofull:after {
   z-index: 1;
 }
+
 .team {
   overflow: hidden;
 }
+
 .swiper-pointer-events.swiper-vertical,
 .cta__slider-arrows,
 .slid-half .swiper-pagination-fraction.top {
   z-index: 55;
 }
 
-.testimonials2 .slick-slide > div {
+.testimonials2 .slick-slide>div {
   padding: 0 10px !important;
 }
+
 @media (max-width: 991px) {
   .navbar .navbar-collapse {
     display: block;
@@ -208,12 +239,14 @@ a.col-lg-4.col-xl-3.col-md-12 {
     height: 0;
     transition: all 0.3s linear;
   }
+
   .navbar .navbar-collapse.show-with-trans {
     opacity: 1;
     padding: 10px 15px;
     height: auto;
   }
 }
+
 .hideX #preloader {
   display: none !important;
   z-index: -1111111;
@@ -221,18 +254,22 @@ a.col-lg-4.col-xl-3.col-md-12 {
   width: 0;
   overflow: hidden;
 }
+
 .hideX .pace {
   display: none !important;
 }
+
 .pace-done #preloader:after {
   bottom: 0;
 }
+
 .pace-done #preloader {
   visibility: hidden;
   -webkit-transition-delay: 0.5s;
   -o-transition-delay: 0.5s;
   transition-delay: 0.5s;
 }
+
 .pace-done #preloader:after,
 .pace-done #preloader:before {
   height: 0;
@@ -243,6 +280,7 @@ a.col-lg-4.col-xl-3.col-md-12 {
   -o-transition-delay: 1s;
   transition-delay: 1s;
 }
+
 body.hideX #preloader {
   display: none !important;
   z-index: -1111111;
@@ -250,10 +288,12 @@ body.hideX #preloader {
   width: 0;
   overflow: hidden;
 }
+
 body.hideX .pace {
   display: none !important;
   background-color: transparent;
 }
+
 .map-box iframe,
 .contact-map iframe {
   width: 100%;
