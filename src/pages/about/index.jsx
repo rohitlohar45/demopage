@@ -32,7 +32,6 @@
 
 // export default About;
 
-
 import React from "react";
 import PageHeader from "../../components/Page-header";
 import AboutUs from "../../components/About-Us4";
@@ -56,11 +55,13 @@ const About = () => {
 					{ id: 1, name: "home", url: "/" },
 					{ id: 2, name: "about us", url: "/about" },
 				]}
+				image={
+					"https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+				}
 			/>
 			<AboutUs />
 			<Services />
 			<Testimonials bigTitle />
-			<Team />
 			<Timeline events={[]} />
 			<Skills />
 		</LightLayout>

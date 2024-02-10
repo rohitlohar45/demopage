@@ -12,10 +12,8 @@ import {
 import Header from "../components/dashboard/Header";
 import ResSidebar from "../components/dashboard/ResSidebar";
 import Home from "../components/dashboard/Home";
-
 const DashboardLayout = ({ children, logoClassText }) => {
 	const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
-
 	const OpenSidebar = () => {
 		setOpenSidebarToggle(!openSidebarToggle);
 	};
@@ -27,6 +25,7 @@ const DashboardLayout = ({ children, logoClassText }) => {
 				<link rel="stylesheet" href="/assets/css/dashboard.css" />
 				<link rel="stylesheet" href="/assets/css/res-dashboard.css" />
 			</Head>
+
 			<div className="grid-container">
 				<Header OpenSidebar={OpenSidebar} />
 				<ResSidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />

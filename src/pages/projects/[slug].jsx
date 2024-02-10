@@ -43,7 +43,7 @@ const WorkPage = () => {
 			<PageHeader
 				title="Architecture is a visual art"
 				fullPath={[]}
-				image="/assets/img/patern.png"
+				image="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
 				content="Architecture bibendum pharetra eleifend. Suspendisse vel volutpat purus, sit amet bibendum nisl. Cras mollis turpis a ipsum ultes, nec condimentum ipsum consequat. Mauris vitae consequat nibh, vitae interdum mi."
 			/>
 			<WorkTwoColumn slug={slug} />

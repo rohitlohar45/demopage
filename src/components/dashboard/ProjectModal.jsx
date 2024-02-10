@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import { ListGroup } from "react-bootstrap";
 import ProjectForm from "./ProjectForm";
 
-function ProjectModal({ action = "Add" }) {
+function ProjectModal({ action = "Add", addProject }) {
 	const [show, setShow] = useState(false);
 
 	const [projectData, setProjectData] = useState(null);
@@ -46,7 +46,7 @@ function ProjectModal({ action = "Add" }) {
 					<Button className="btn btn-danger" onClick={handleClose}>
 						Close
 					</Button>
-					<Button className="btn btn-success" onClick={handleClose}>
+					<Button className="btn btn-success" onClick={addProject}>
 						{action == "Add" ? "Submit" : "Save Changes"}
 					</Button>
 				</Modal.Footer>

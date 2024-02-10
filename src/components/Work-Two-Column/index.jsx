@@ -4,6 +4,7 @@ import Link from "next/link";
 import initIsotope from "../../common/initIsotope";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/firebase";
+import ComingSoon from "../Coming-Soon";
 
 const demoprojects = [
 	{
@@ -97,8 +98,6 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 
 	useEffect(() => {
 		async function fetchProjects() {
-			// query to get all projects based on slug with the property category
-
 			const q = query(collection(db, "projects"), where("category", "==", slug));
 
 			const querySnapshot = await getDocs(q);
@@ -109,41 +108,43 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 				data.push({ ...project.data(), id: project.id });
 			});
 
-			console.log(data);
+			setProjects(data);
 		}
 		fetchProjects();
-		setProjects(demoprojects);
 	}, []);
 
 	return (
 		<>
-			<section className="works filter-img section-padding">
-				<div className="container">
-					<div className="row gallery">
-						<div className="col-lg-6 items mt-0 interior theaters residential">
-							<div className="section-head mb-0">
-								<h3>Works</h3>
-								<span>Our Recent Projects in {slug}</span>
+			{projects.length < 2 ? (
+				<ComingSoon category={slug} />
+			) : (
+				<section className="works filter-img section-padding">
+					<div className="container">
+						<div className="row gallery">
+							<div className="col-lg-6 items mt-0 interior theaters residential">
+								<div className="section-head mb-0">
+									<h3>Works</h3>
+									<span>Our Recent Projects in {slug}</span>
+								</div>
 							</div>
-						</div>
-						<div>
-							{projects.map((project) => (
-								<div key={project.id} className="col-lg-6 items interior my-5">
-									<div className="item">
-										<div className="img">
-											<img src="/assets/img/works/1.jpg" alt="" />
-										</div>
-										<div className="cont vis">
-											<h5>
-												<Link href={`/projects/${slug}/${project.id}`}>{project.name}</Link>
-											</h5>
-											<span>{project.description}</span>
+							<div>
+								{projects.map((project) => (
+									<div key={project.id} className="col-lg-6 items interior my-5">
+										<div className="item">
+											<div className="img">
+												<img src="/assets/img/works/1.jpg" alt="" />
+											</div>
+											<div className="cont vis">
+												<h5>
+													<Link href={`/projects/${slug}/${project.id}`}>{project.name}</Link>
+												</h5>
+												<span>{project.description}</span>
+											</div>
 										</div>
 									</div>
-								</div>
-							))}
-						</div>
-						{/* <div className="col-lg-6 items theaters">
+								))}
+							</div>
+							{/* <div className="col-lg-6 items theaters">
               <div className="item">
                 <div className="img">
                   <img src="/assets/img/works/2.jpg" alt="" />
@@ -213,9 +214,10 @@ export const WorkTwoColumn = ({ slug = "" }) => {
                 </div>
               </div>
             </div> */}
+						</div>
 					</div>
-				</div>
-			</section>
+				</section>
+			)}
 		</>
 	);
 };
