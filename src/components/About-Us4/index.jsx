@@ -48,7 +48,7 @@ const AboutUs4 = () => {
 						<div className="txt-cont">
 							<p className="mb-20">
 								We are a dynamic team dedicated to delivering exceptional results. With our
-								expertise and commitment, we've successfully completed 352 projects, leaving 567
+								expertise and commitment, we have successfully completed 352 projects, leaving 567
 								satisfied clients.
 							</p>
 							<p>

@@ -72,7 +72,7 @@ const Process = () => {
 							</div>
 							<div className="cont">
 								<h6 className="mb-10">Evaluation</h6>
-								<p>Assess the project's success and identify areas for improvement.</p>
+								<p>Assess the project success and identify areas for improvement.</p>
 							</div>
 						</div>
 					</div>
