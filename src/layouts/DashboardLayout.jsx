@@ -19,9 +19,6 @@ const DashboardLayout = ({ children, logoClassText }) => {
 	const OpenSidebar = () => {
 		setOpenSidebarToggle(!openSidebarToggle);
 	};
-	useEffect(() => {
-		console.log(authUser);
-	}, [authUser]);
 
 	return (
 		<>

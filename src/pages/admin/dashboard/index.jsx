@@ -79,10 +79,6 @@ export default function ProfilePage() {
 	const router = useRouter();
 
 	useEffect(() => {
-		console.log(authUser);
-	}, []);
-
-	useEffect(() => {
 		if (!isLoading && !authUser) {
 			router.push("/login");
 		}
