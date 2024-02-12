@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-css-tags */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Sidebar from "../components/dashboard/sidebar";
 import "tailwindcss/tailwind.css";
@@ -12,11 +12,16 @@ import {
 import Header from "../components/dashboard/Header";
 import ResSidebar from "../components/dashboard/ResSidebar";
 import Home from "../components/dashboard/Home";
+import { useAuth } from "../firebase/auth";
 const DashboardLayout = ({ children, logoClassText }) => {
 	const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+	const { authUser } = useAuth();
 	const OpenSidebar = () => {
 		setOpenSidebarToggle(!openSidebarToggle);
 	};
+	useEffect(() => {
+		console.log(authUser);
+	}, [authUser]);
 
 	return (
 		<>
@@ -27,8 +32,12 @@ const DashboardLayout = ({ children, logoClassText }) => {
 			</Head>
 
 			<div className="grid-container">
-				<Header OpenSidebar={OpenSidebar} />
-				<ResSidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+				{authUser ? (
+					<>
+						<Header OpenSidebar={OpenSidebar} />
+						<ResSidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar} />
+					</>
+				) : null}
 				<Home children={children} />
 			</div>
 			{/* <main className="main-container">
