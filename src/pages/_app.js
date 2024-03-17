@@ -7,6 +7,7 @@ import Cursor from "../components/Cursor";
 import ScrollToTop from "../components/scrollToTop";
 import { AuthUserProvider } from "../firebase/auth";
 import { useRouter } from "next/router";
+import { Toaster } from "react-hot-toast";
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -24,6 +25,7 @@ function MyApp({ Component, pageProps }) {
 
 			{isPathAdmin ? (
 				<AuthUserProvider>
+					<Toaster position="top-center" />
 					<Component {...pageProps} />
 				</AuthUserProvider>
 			) : (

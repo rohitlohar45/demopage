@@ -20,34 +20,25 @@ const ProjectIntro = ({ project }) => {
 					<div className="col-lg-3">
 						<div className="item mt-30">
 							<h6>Location</h6>
-							<p>
-								<Link href="#">.com</Link>
-								{/*Get the Demo Data => Location */}
-							</p>
+							<p>{project?.location}</p>
 						</div>
 					</div>
 					<div className="col-lg-3">
 						<div className="item mt-30">
 							<h6>Year</h6>
-							<p>6 August 2022</p>
-							{/*Get the Demo Data => Year */}
+							{project?.year}
 						</div>
 					</div>
 					<div className="col-lg-3">
 						<div className="item mt-30">
 							<h6>Area(square footage)</h6>
-							<p>
-								<Link href="#">Web Design </Link>
-								{/*Get the Demo Data => Area */}
-							</p>
+							{project?.area}
 						</div>
 					</div>
 					<div className="col-lg-3">
 						<div className="item mt-30">
 							<h6>Category</h6>
-							<p>
-								<Link href="#">Residential</Link>
-							</p>
+							{project?.category?.toUpperCase()}
 						</div>
 					</div>
 				</div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddEditProjectModal from "./ProjectModal";
 import { Button, CardGroup, Col, Pagination, Row, Table } from "react-bootstrap";
@@ -17,51 +17,59 @@ const Dashboard = ({
 	heading = "",
 }) => {
 	const [searchQuery, setSearchQuery] = useState("");
-
-	const [showModal, setShowModal] = useState(false);
 	const [selectedProject, setSelectedProject] = useState(null);
+	const [filteredProjects, setFilteredProjects] = useState([]);
+	const [show, setShow] = useState(false);
 
-	const startIndex = (currentPage - 1) * itemsPerPage;
-	const paginatedProjects = projects.slice(startIndex, startIndex + itemsPerPage);
-	const totalPages = Math.ceil(projects.length / itemsPerPage);
-
-	const handleAddEditProject = (project) => {
-		// Update your project data or perform other actions here
-		if (project.id) {
-			onEdit(project);
-		} else {
-			// Adding a new project
-			// Perform your logic here to add the new project
-		}
+	const handleEditProject = (project) => {
+		setSelectedProject(project);
+		setShow(true);
 	};
+
+	useEffect(() => {
+		console.log("show", show);
+		if (!show) setSelectedProject(null);
+	}, [show]);
 
 	const columns = [
 		{ header: "Name", field: "name" },
 		{ header: "Description", field: "description" },
-
-		// ... Add more columns as needed
+		{ header: "Location", field: "location" },
+		{ header: "Category", field: "category" },
 	];
 
-	const filteredProjects = projects.filter((project) =>
-		project.name.toLowerCase().includes(searchQuery.toLowerCase())
-	);
+	useEffect(() => {
+		setFilteredProjects(projects);
+	}, [projects]);
+
+	useEffect(() => {
+		if (searchQuery) {
+			const searchedProjects = projects.filter((project) =>
+				project.name.toLowerCase().includes(searchQuery.toLowerCase())
+			);
+			setFilteredProjects(searchedProjects);
+		} else {
+			setFilteredProjects(projects);
+		}
+	}, [searchQuery]);
+
+	const handleAddEditProject = (formData) => {
+		// Check if formData has an ID to determine if it's an add or edit action
+		if (formData.id) {
+			// Edit existing project
+			onEdit(formData);
+		} else {
+			// Add new project
+			onAddNewProject(formData);
+		}
+		setSelectedProject(null); // Reset selected project after adding/editing
+	};
 
 	return (
 		<div style={styles.container} className="main-content">
 			<h1 style={styles.heading} className="text-2xl font-semibold mb-4">
 				{heading}
 			</h1>
-			{/* <div style={styles.searchBar} className="mb-4">
-				<input
-					style={{ ...styles.searchInput, marginRight: "8px" }}
-					type="text"
-					placeholder="Search projects..."
-					value={searchQuery}
-					onChange={(e) => setSearchQuery(e.target.value)}
-				/>
-				<AddEditProjectModal />
-
-			</div> */}
 			{isDashboard ? (
 				<div style={styles.searchBar} className="mb-4">
 					<input
@@ -71,16 +79,24 @@ const Dashboard = ({
 						value={searchQuery}
 						onChange={(e) => setSearchQuery(e.target.value)}
 					/>
-					<AddEditProjectModal addProject={onAddNewProject} />
+					<AddEditProjectModal
+						addProject={handleAddEditProject}
+						action={selectedProject ? "Edit" : "Add"}
+						selectedProject={selectedProject}
+						show={show}
+						setShow={setShow}
+					/>
 				</div>
 			) : null}
 
 			<TableComponent
-				data={projects}
+				data={filteredProjects}
 				columns={columns}
 				itemsPerPage={5}
 				currentPage={currentPage}
 				onPageChange={onPageChange}
+				onDelete={onDelete}
+				onEdit={handleEditProject}
 			/>
 		</div>
 	);

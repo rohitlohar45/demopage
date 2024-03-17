@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -7,10 +7,8 @@ import Modal from "react-bootstrap/Modal";
 import { ListGroup } from "react-bootstrap";
 import ProjectForm from "./ProjectForm";
 
-function ProjectModal({ action = "Add", addProject }) {
-	const [show, setShow] = useState(false);
-
-	const [projectData, setProjectData] = useState(null);
+function ProjectModal({ action = "Add", addProject, selectedProject = null, show, setShow }) {
+	const [projectData, setProjectData] = useState(selectedProject || {});
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -23,10 +21,23 @@ function ProjectModal({ action = "Add", addProject }) {
 		setSelectedImages(updatedImages);
 	};
 
+	useEffect(() => {
+		if (selectedProject) {
+			console.log(selectedProject);
+			handleShow();
+		}
+	}, [selectedProject]);
+
 	const handleImageDeselect = (index) => {
 		const updatedImages = [...selectedImages];
 		updatedImages.splice(index, 1);
 		setSelectedImages(updatedImages);
+	};
+
+	const handleSave = () => {
+		// Pass the formData to the addProject function
+		addProject(projectData);
+		setShow(false); // Close modal after saving
 	};
 
 	return (
@@ -40,13 +51,13 @@ function ProjectModal({ action = "Add", addProject }) {
 					<Modal.Title>{action} Project</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<ProjectForm setProjectData={setProjectData} />
+					<ProjectForm setProjectData={setProjectData} initialData={selectedProject} />
 				</Modal.Body>
 				<Modal.Footer>
 					<Button className="btn btn-danger" onClick={handleClose}>
 						Close
 					</Button>
-					<Button className="btn btn-success" onClick={addProject}>
+					<Button className="btn btn-success" onClick={handleSave}>
 						{action == "Add" ? "Submit" : "Save Changes"}
 					</Button>
 				</Modal.Footer>
