@@ -1,63 +1,55 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-import MainLayout from "../../layouts/main";
+import React, { useEffect } from "react";
+import LightLayout from "../../layouts/light";
 import PageHeader from "../../components/Page-header";
 import ProjectIntro from "../../components/Project-Intro";
 import NextProject from "../../components/Next-Project";
-import ProjectVideo from "../../components/Project-Video";
+import AfterBefore from "../../components/After-Before";
+import Services3 from "../../components/Services3";
+import { useRouter } from "next/router";
 
 const ProjectDetails = () => {
+	const router = useRouter();
+	const { slug } = router.query;
 
-  React.useEffect(() => {
-    document.querySelector("body").classList.add("index3");
-  }, []);
-  return (
-    <MainLayout>
-      <PageHeader
-        title="Luxury Furniture"
-        fullPath={[
-          { id: 1, name: "home", url: "/" },
-          { id: 2, name: "portfolio", url: "/work1" },
-          { id: 3, name: "project details", url: "/project-details" },
-        ]}
-        image="/assets/img/portfolio/project1/bg.jpg"
-      />
-      <ProjectIntro />
-      <section className="projdtal">
-        <div className="justified-gallery">
-          <div className="row">
-            <a href="#" className="col-lg-4 col-xl-3 col-md-12">
-              <img alt="" src="/assets/img/portfolio/project1/1.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-              <img alt="" src="/assets/img/portfolio/project1/2.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-              <img alt="" src="/assets/img/portfolio/project1/6.jpg" />
-            </a>
-            <a href="#" className="col-lg-4 col-xl-3 col-md-12">
-              <img alt="" src="/assets/img/portfolio/project1/3.jpg" />
-            </a>
-          </div>
-        </div>
-      </section>
+	useEffect(() => {
+		console.log("slug", slug);
+	}, [slug]);
 
-      <ProjectVideo />
+	return (
+		<LightLayout>
+			<PageHeader
+				title="Luxury Furniture"
+				fullPath={[
+					{ id: 2, name: "Works", url: "/work1" },
+					{ id: 3, name: "Work details", url: "/project-details" },
+				]}
+				image="/assets/img/portfolio/project1/bg.jpg"
+			/>
+			<ProjectIntro project={[{ name: "Project 1", description: "Demo" }]} />
+			<AfterBefore />
+			<section className="projdtal">
+				<div className="justified-gallery">
+					<div className="row">
+						<a href="#" className="col-lg-4 col-xl-3 col-md-12">
+							<img alt="" src="/assets/img/portfolio/project1/1.jpg" />
+						</a>
+						<a href="#" className="col-lg-4 col-xl-3 col-md-6">
+							<img alt="" src="/assets/img/portfolio/project1/2.jpg" />
+						</a>
+						<a href="#" className="col-lg-4 col-xl-3 col-md-6">
+							<img alt="" src="/assets/img/portfolio/project1/6.jpg" />
+						</a>
+						<a href="#" className="col-lg-4 col-xl-3 col-md-12">
+							<img alt="" src="/assets/img/portfolio/project1/3.jpg" />
+						</a>
+					</div>
+				</div>
+			</section>
 
-      <section className="projdtal">
-        <div className="justified-gallery">
-          <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-            <img alt="" src="/assets/img/portfolio/project1/8.jpg" />
-          </a>
-          <a href="#" className="col-lg-4 col-xl-3 col-md-6">
-            <img alt="" src="/assets/img/portfolio/project1/9.jpg" />
-          </a>
-        </div>
-      </section>
-
-      <NextProject />
-    </MainLayout>
-  );
+			<Services3 />
+		</LightLayout>
+	);
 };
 
 export default ProjectDetails;

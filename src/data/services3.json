@@ -3,21 +3,21 @@
     "id": 1,
     "image": "/assets/img/01.jpg",
     "icon": "icon flaticon-home-1",
-    "title": "Architecture",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "title": "Sketch/Plan",
+    "content": "The sketch design creates the first physical design interpretation of the brief. We need to determine your wants and needs.."
   },
   {
     "id": 2,
     "image": "/assets/img/02.jpg",
     "icon": "icon flaticon-living-room",
-    "title": "Interior Design",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "title": "Proposed Plan",
+    "content": "We present the layout at this stage to the client who in turn needs to approve the concept, budget & layout and give us a go ahead for either 3D or execution.."
   },
   {
     "id": 3,
     "image": "/assets/img/03.jpg",
     "icon": "icon flaticon-interior-design",
-    "title": "3D Modeling",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "title": "3D Design",
+    "content": "3D takes the 2D Design to the next level- decorate the interior, optimizing the furniture arrangement & making decision super easy on a wide range of things like colour choices, finishes, furniture etc."
   }
 ]

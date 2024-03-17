@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import appData from "../../data/app.json";
 import getSiblings from "../../common/getSiblings";
+import Contact from "../Contact";
 
 const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 	const handleDropdown = (e) => {
@@ -32,7 +33,7 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 				<div className="container">
 					<Link href="#">
 						<a className={`logo ${logoClass && logoClass}`}>
-							<img src="/assets/img/logo.png" alt="logo" ref={logoRef} />
+							<img src="/assets/img/logo.png" alt="logo" ref={logoRef} style={{ width: "200px" }} />
 						</a>
 					</Link>
 
@@ -53,6 +54,16 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav ml-auto">
+							<li className="nav-item">
+								<Link href="/">
+									<a className="nav-link">Home</a>
+								</Link>
+							</li>
+							<li className="nav-item">
+								<Link href="/about">
+									<a className="nav-link">About Us</a>
+								</Link>
+							</li>
 							<li className="nav-item dropdown" onClick={handleDropdown}>
 								<span
 									className="nav-link dropdown-toggle"
@@ -61,25 +72,35 @@ const Navbar = ({ navbarRef, logoRef, logoClass }) => {
 									aria-haspopup="true"
 									aria-expanded="false"
 								>
-									Home
+									Projects
 								</span>
 								<div className="dropdown-menu">
-									<Link href="#">
-										<a className="dropdown-item">Dropdown 1</a>
+									<Link href="/projects/residential">
+										<a className="dropdown-item">Residential</a>
 									</Link>
-									<Link href="#">
-										<a className="dropdown-item">Dropdown 2</a>
+									<Link href="/projects/commercial">
+										<a className="dropdown-item">Corporate & Commercial</a>
+									</Link>
+									<Link href="/projects/healthcare">
+										<a className="dropdown-item">Healthcare</a>
+									</Link>
+									<Link href="/projects/education">
+										<a className="dropdown-item">Education</a>
+									</Link>
+									<Link href="/projects/government">
+										<a className="dropdown-item">Government</a>
 									</Link>
 								</div>
 							</li>
+
 							<li className="nav-item">
-								<Link href="#">
-									<a className="nav-link">About</a>
+								<Link href="/careers">
+									<a className="nav-link">Careers</a>
 								</Link>
 							</li>
 							<li className="nav-item">
-								<Link href="#">
-									<a className="nav-link">Contact</a>
+								<Link href="/contact">
+									<a className="nav-link">Contact Us</a>
 								</Link>
 							</li>
 						</ul>

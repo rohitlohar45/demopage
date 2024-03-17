@@ -14,14 +14,8 @@ class MyDocument extends Document {
 				<Head>
 					<meta charSet="utf-8" />
 					<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-					<meta
-						name="keywords"
-						content="React Nextjs Template Peace Interiors onepage themeforest"
-					/>
-					<meta
-						name="description"
-						content="Peace Interiors - Onepage Multi-Purpose React nextjs Template"
-					/>
+					<meta name="keywords" content="Peace Interiors" />
+					<meta name="description" content="Peace Interiors" />
 					<meta name="author" content="" />
 
 					<link rel="shortcut icon" href="/assets/img/favicon.ico" />

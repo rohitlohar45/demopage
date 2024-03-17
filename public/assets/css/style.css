@@ -2,7 +2,7 @@
 
     Theme Name: architec
     Theme URI: http://
-    Description: Architecture & Interior Design HTML Template
+    Description: Architecture & Interior Design HTML
     Author: ThemesCamp
     Author URI: http://themeforest.net/user/ThemesCamp
     Version: 1.0
@@ -169,7 +169,7 @@ a, span {
   color: #c5a47e !important; }
 
 .bg-gray {
-  background-color: #f8f4f3; }
+  background-color: #FED0BB; }
   .bg-gray .primery-shadow {
     -webkit-box-shadow: 0px 4px 30px -4px rgba(0, 0, 0, 0.2);
     box-shadow: 0px 4px 30px -4px rgba(0, 0, 0, 0.2); }
@@ -2868,14 +2868,14 @@ body {
       top: 0;
       bottom: auto; }
   .call-action .content h6 {
-    color: #b19777;
+    color: #B23A48;
     font-size: 13px;
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 4px;
     margin-bottom: 10px; }
     .call-action .content h6 span {
-      color: #b19777; }
+      color: #B23A48; }
   .call-action .content h2 {
     font-size: 6vw;
     font-weight: 800;
@@ -3312,7 +3312,7 @@ body {
     width: 100%; }
     .testimonials.grid .navs span {
       padding: 10px 20px;
-      background: #f8f4f3;
+      background: #FED0BB;
       cursor: pointer;
       position: absolute;
       top: 0;
@@ -4029,9 +4029,9 @@ body {
 /* ====================== [ Start Footer ] ====================== */
 footer {
   background: #151515;
-  width: calc(100% - 50px);
+  /* width: calc(100% - 50px);
   margin-left: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 25px; */
   color: #fff;
   padding: 100px 0; }
   footer .item .title h5 {
@@ -4082,7 +4082,7 @@ footer {
   footer .item .logo {
     margin-bottom: 50px; }
     footer .item .logo img {
-      width: 100px; }
+      width: 300px; }
   footer .item .social a {
     width: 60px;
     height: 60px;

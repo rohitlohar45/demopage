@@ -1,9 +1,11 @@
 import React from "react";
 import appData from "../../data/app.json";
+import LightLayout from "../../layouts/light";
 
 const Contact = () => {
   return (
     <>
+    <LightLayout >
       <section className="contact cont-map">
         <div className="container">
           <div className="row">
@@ -66,8 +68,11 @@ const Contact = () => {
           style={{ backgroundImage: "url(/assets/img/2.jpg)" }}
         ></div>
       </section>
+      </LightLayout>
     </>
   );
 };
+
+
 
 export default Contact;
