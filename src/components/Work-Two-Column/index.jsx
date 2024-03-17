@@ -26,11 +26,16 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 				console.log(project.data());
 				data.push({ ...project.data(), id: project.id });
 			});
+			// filter the data based on the category
+			// const data = await getDocs(q);
+			// console.log("data", data);
+			setProjects(data.filter((project) => project.category === slug));
+			console.log("data", data);
 
 			setProjects(data);
 		}
 		fetchProjects();
-	}, []);
+	}, [slug]);
 
 	return (
 		<>
