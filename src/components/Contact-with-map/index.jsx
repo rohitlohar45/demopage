@@ -1,7 +1,76 @@
-import React from "react";
-import appData from '../../data/app.json'
+import React, { useState } from "react";
+import appData from "../../data/app.json";
 
-const ContactWithMap = () => {
+const ContactWithMap = ({ onSubmit }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const validateForm = () => {
+    let valid = true;
+    const errors = {};
+
+    // Validate name
+    if (!formData.name.trim()) {
+      errors.name = "Name is required";
+      valid = false;
+    }
+
+    // Validate email
+    if (!formData.email.trim()) {
+      errors.email = "Email is required";
+      valid = false;
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      errors.email = "Invalid email address";
+      valid = false;
+    }
+
+    // Validate message
+    if (!formData.message.trim()) {
+      errors.message = "Message is required";
+      valid = false;
+    }
+
+    setFormErrors(errors);
+    return valid;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+      console.log("Form submitted!");
+      onSubmit(formData);
+
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+      setFormErrors({
+        name: "",
+        email: "",
+        message: "",
+      });
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -9,7 +78,7 @@ const ContactWithMap = () => {
           <iframe src={appData.mapIframe}></iframe>
         </div>
         <div className="col-lg-6 form">
-          <form id="contact-form" method="post">
+          <form id="contact-form" onSubmit={handleSubmit} method="post">
             <div className="messages"></div>
 
             <div className="controls">
@@ -19,8 +88,13 @@ const ContactWithMap = () => {
                   type="text"
                   name="name"
                   placeholder="Name"
-                  required="required"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
                 />
+                {formErrors.name && (
+                  <div className="error">{formErrors.name}</div>
+                )}
               </div>
 
               <div className="form-group">
@@ -29,8 +103,13 @@ const ContactWithMap = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  required="required"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
                 />
+                {formErrors.email && (
+                  <div className="error">{formErrors.email}</div>
+                )}
               </div>
 
               <div className="form-group">
@@ -39,8 +118,13 @@ const ContactWithMap = () => {
                   name="message"
                   placeholder="Message"
                   rows="4"
-                  required="required"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
+                {formErrors.message && (
+                  <div className="error">{formErrors.message}</div>
+                )}
               </div>
 
               <button type="submit" className="btn-curve btn-color">

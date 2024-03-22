@@ -245,7 +245,7 @@ const Footer = ({ classText }) => {
                 <li>
                   <span className="icon pe-7s-map-marker"></span>
                   <div className="cont">
-                    <h6>Officeal Address</h6>
+                    <h6>Official Address</h6>
                     <p style={{ color: "#fff" }}>
                       Shop no 5 jamuna chambers opposite Union bank Of india,
                       Aundh Rd, Khadki, Pune, Maharashtra 411020
