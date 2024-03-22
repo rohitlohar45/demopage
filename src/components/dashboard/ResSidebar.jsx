@@ -47,13 +47,13 @@ const Sidebar = ({ openSidebarToggle, OpenSidebar }) => {
             </a>
           </Link>
         </li>
-        {/* <li className="sidebar-list-item">
-					<Link href={"/admin/feedback"}>
-						<a>
-							<BsFillGrid3X3GapFill className="icon" /> Categories
-						</a>
-					</Link>
-				</li> */}
+        <li className="sidebar-list-item">
+          <Link href={"/admin/feedback"}>
+            <a>
+              <BsFillGrid3X3GapFill className="icon" /> testimonials
+            </a>
+          </Link>
+        </li>
         <li className="sidebar-list-item">
           <Link href={"/admin/career-queries"}>
             <a>
