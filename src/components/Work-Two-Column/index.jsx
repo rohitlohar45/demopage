@@ -124,7 +124,7 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 
   return (
     <>
-      {projects.length <= 2 ? (
+      {projects.length < 2 ? (
         <ComingSoon category={slug} />
       ) : (
         <section className="works filter-img section-padding">

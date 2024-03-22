@@ -7,57 +7,70 @@ import NextProject from "../../../components/Next-Project";
 import AfterBefore from "../../../components/After-Before";
 import Services3 from "../../../components/Services3";
 import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../../firebase/firebase";
 
 const ProjectDetails = () => {
 	const router = useRouter();
-
-	const [data, setData] = useState({
-		name: "Project Name",
-		description:
-			"Where Inspiration Meets Home: Welcome to our Residential Interior Design Showcase, where impeccable craftsmanship and innovative designs transform houses into personalized havens of style and comfort. Step inside and discover the art of living beautifully.",
-	});
-	const { slug, item } = router.query;
+	const [data, setData] = useState({});
+	const { item } = router.query;
 
 	useEffect(() => {
-		console.log("slug", slug);
-		console.log("item", item);
-	}, [slug, item]);
+		// write function to get the data from the firebase of the collection with id of item
+		async function getProjectData() {
+			try {
+				const docRef = doc(db, "projects", item);
+				const docSnap = await getDoc(docRef);
+				if (docSnap.exists()) {
+					setData(docSnap.data());
+					console.log("Document data:", docSnap.data());
+				} else {
+					console.log("No such document!");
+				}
+			} catch (error) {
+				console.error("Error getting document:", error);
+			}
+		}
+
+		if (item) {
+			getProjectData();
+		}
+	}, [item]);
 
 	return (
 		<LightLayout>
-			<PageHeader
-				title="Luxury Furniture" // Get the Demo data =>Name
-				fullPath={[
-					// { id: 1, name: "home", url: "/" },
-					{ id: 2, name: "Works", url: "/work1" },
-					{ id: 3, name: "Work details", url: "/project-details" },
-				]}
-				image="/assets/img/portfolio/project1/bg.jpg" // Get the Demo data => Thumbnail
-			/>
-			<ProjectIntro project={data} />
-			<AfterBefore />
-			<section className="projdtal">
-				{" "}
-				{/* Can implement mapping */}
-				<div className="justified-gallery">
-					<div className="row">
-						<a href="#" className="col-lg-4 col-xl-3 col-md-12">
-							<img alt="" src="/assets/img/portfolio/project1/1.jpg" />
-						</a>
-						<a href="#" className="col-lg-4 col-xl-3 col-md-6">
-							<img alt="" src="/assets/img/portfolio/project1/2.jpg" />
-						</a>
-						<a href="#" className="col-lg-4 col-xl-3 col-md-6">
-							<img alt="" src="/assets/img/portfolio/project1/6.jpg" />
-						</a>
-						<a href="#" className="col-lg-4 col-xl-3 col-md-12">
-							<img alt="" src="/assets/img/portfolio/project1/3.jpg" />
-						</a>
-					</div>
-				</div>
-			</section>
+			{data ? (
+				<>
+					<PageHeader
+						title={data.name}
+						fullPath={[
+							{ id: 2, name: "Works", url: "/work1" },
+							{ id: 3, name: "Work details", url: "/project-details" },
+						]}
+						image={data.thumbnail} // Get the Demo data => Thumbnail
+					/>
+					<ProjectIntro project={data} />
+					<AfterBefore afterImage={data.afterImage} beforeImage={data.beforeImage} />
+					<section className="projdtal" style={{ padding: "20px" }}>
+						<div className="justified-gallery">
+							<div className="row">
+								{data.images?.map((image, index) => (
+									<a key={index} href="#" className="col-lg-4 col-xl-3 col-md-12">
+										<img
+											alt={index}
+											src={image}
+											style={{ objectFit: "contain", height: "200px" }}
+										/>
+									</a>
+								))}
+							</div>
+						</div>
+					</section>
 
-			<Services3 />
+					<Services3 />
+				</>
+			) : null}
+
 			{/* <NextProject /> */}
 		</LightLayout>
 	);

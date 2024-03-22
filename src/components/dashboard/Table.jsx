@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Table, Pagination, Button } from "react-bootstrap";
 import {
   BsChevronLeft,
@@ -18,9 +18,20 @@ const TableComponent = ({
   onDelete,
 }) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedData = data.slice(startIndex, startIndex + itemsPerPage);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const paginatedData = data?.slice(startIndex, startIndex + itemsPerPage);
+  const totalPages = Math.ceil(data?.length / itemsPerPage);
+  const [isEditing, setIsEditing] = useState(false);
 
+  function editProject(row) {
+    setIsEditing(true);
+    onEdit(row);
+  }
+
+  useEffect(() => {
+    if (!isEditing) {
+      onEdit(null); // Reset selected project when not editing
+    }
+  }, [isEditing]);
   return (
     <div>
       <Table bordered hover>
@@ -33,7 +44,7 @@ const TableComponent = ({
           </tr>
         </thead>
         <tbody>
-          {paginatedData.map((row, rowIndex) => (
+          {paginatedData?.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {columns.map((column, colIndex) => (
                 <td key={colIndex}>{row[column.field]}</td>
@@ -48,15 +59,14 @@ const TableComponent = ({
                 <div style={styles.buttons}>
                   <Button
                     className="primary-button"
-                    // style={styles.editButton}
-                    onClick={() => onEdit(project)}
+                    onClick={() => editProject(row)}
                   >
                     <FiEdit className="icon" />
                   </Button>
                   <Button
                     className="danger-button"
                     // style={styles.deleteButton}
-                    onClick={() => onDelete(project)}
+                    onClick={() => onDelete(row)}
                   >
                     <FiTrash className="icon" />
                   </Button>
@@ -73,15 +83,17 @@ const TableComponent = ({
         >
           <BsChevronLeft />
         </Pagination.Prev>
-        {[...Array(totalPages).keys()].map((pageNum) => (
-          <Pagination.Item
-            key={pageNum + 1}
-            active={pageNum + 1 === currentPage}
-            onClick={() => onPageChange(pageNum + 1)}
-          >
-            {pageNum + 1}
-          </Pagination.Item>
-        ))}
+        {totalPages &&
+          [...Array(totalPages)?.keys()].map((pageNum) => (
+            <Pagination.Item
+              key={pageNum + 1}
+              active={pageNum + 1 === currentPage}
+              // Other props for Pagination.Item
+            >
+              {pageNum + 1}
+            </Pagination.Item>
+          ))}
+
         <Pagination.Next
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
