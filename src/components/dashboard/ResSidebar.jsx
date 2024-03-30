@@ -48,9 +48,9 @@ const Sidebar = ({ openSidebarToggle, OpenSidebar }) => {
           </Link>
         </li>
         <li className="sidebar-list-item">
-          <Link href={"/admin/feedback"}>
+          <Link href={"/admin/testimonial"}>
             <a>
-              <BsFillGrid3X3GapFill className="icon" /> testimonials
+              <BsFillGrid3X3GapFill className="icon" /> Testimonials
             </a>
           </Link>
         </li>

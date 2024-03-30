@@ -9,19 +9,19 @@ import Process from "../../components/Process";
 import Layout from "../../layouts/light";
 
 const Home = () => {
-	React.useEffect(() => {
-		document.querySelector("body").classList.add("homepage");
-	}, []);
-	return (
-		<Layout>
-			<IntroWithVertical />
-			<Services />
-			<AboutUs />
-			<Portfolio />
-			<Process />
-			<Testimonials withBg />
-		</Layout>
-	);
+  React.useEffect(() => {
+    document.querySelector("body").classList.add("homepage");
+  }, []);
+  return (
+    <Layout>
+      <IntroWithVertical />
+      <Services />
+      <AboutUs />
+      <Portfolio />
+      <Process />
+      <Testimonials withBg />
+    </Layout>
+  );
 };
 
 export default Home;
