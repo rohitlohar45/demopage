@@ -53,29 +53,27 @@ const CareerQueries = ({ data, itemsPerPage, currentPage, onPageChange, onDelete
 					)}
 				</tbody>
 			</Table>
-			{!isEmpty &&
-				data?.length >
-					5(
-						<Pagination>
-							<Pagination.Prev
-								onClick={() => onPageChange(currentPage - 1)}
-								disabled={currentPage === 1}
-							/>
-							{[...Array(totalPages)].map((_, index) => (
-								<Pagination.Item
-									key={index}
-									active={currentPage === index + 1}
-									onClick={() => onPageChange(index + 1)}
-								>
-									{index + 1}
-								</Pagination.Item>
-							))}
-							<Pagination.Next
-								onClick={() => onPageChange(currentPage + 1)}
-								disabled={currentPage === totalPages}
-							/>
-						</Pagination>
-					)}
+			{!isEmpty && data?.length > 5 && (
+				<Pagination>
+					<Pagination.Prev
+						onClick={() => onPageChange(currentPage - 1)}
+						disabled={currentPage === 1}
+					/>
+					{[...Array(totalPages)].map((_, index) => (
+						<Pagination.Item
+							key={index}
+							active={currentPage === index + 1}
+							onClick={() => onPageChange(index + 1)}
+						>
+							{index + 1}
+						</Pagination.Item>
+					))}
+					<Pagination.Next
+						onClick={() => onPageChange(currentPage + 1)}
+						disabled={currentPage === totalPages}
+					/>
+				</Pagination>
+			)}
 		</div>
 	);
 };
