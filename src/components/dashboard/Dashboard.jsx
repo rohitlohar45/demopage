@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import ProjectCard from "./ProjectCard";
 import AddEditProjectModal from "./ProjectModal";
 import { Button, CardGroup, Col, Pagination, Row, Table } from "react-bootstrap";
-// Import Bootstrap icons
 import TableComponent from "./Table";
 
 const Dashboard = ({
@@ -27,9 +26,9 @@ const Dashboard = ({
 	};
 
 	useEffect(() => {
-		console.log("show", show);
-		if (!show) setSelectedProject(null);
-	}, [show]);
+		// console.log("show", show);
+		if (!show && !selectedProject) setSelectedProject(null);
+	}, [show, selectedProject]);
 
 	const columns = [
 		{ header: "Name", field: "name" },

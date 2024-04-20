@@ -13,7 +13,7 @@ const ProjectDetails = () => {
 	const { slug } = router.query;
 
 	useEffect(() => {
-		console.log("slug", slug);
+		// console.log("slug", slug);
 	}, [slug]);
 
 	return (

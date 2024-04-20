@@ -25,11 +25,11 @@ const LoginForm = () => {
 
 	const loginHandler = async () => {
 		if (!email || !password) return;
-		console.log("Hello");
+		// console.log("Hello");
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
 			router.push("/admin/dashboard");
-			console.log("Great");
+			// console.log("Great");
 		} catch (error) {
 			console.error("An error occured", error);
 		}

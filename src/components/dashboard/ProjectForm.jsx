@@ -76,7 +76,7 @@ const ProjectForm = ({ setProjectData, initialData }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(formData);
+		// console.log(formData);
 		setProjectData(formData);
 	};
 

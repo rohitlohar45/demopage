@@ -22,8 +22,9 @@ function ProjectModal({ action = "Add", addProject, selectedProject = null, show
 	};
 
 	useEffect(() => {
+		// console.log(selectedProject);
 		if (selectedProject) {
-			console.log(selectedProject);
+			// console.log(selectedProject);
 			handleShow();
 		}
 	}, [selectedProject]);

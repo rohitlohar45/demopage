@@ -29,7 +29,7 @@ const RegisterForm = () => {
 	}, [authUser, isLoading]);
 
 	const singupHandler = async () => {
-		console.log("Hello");
+		// console.log("Hello");
 		if (!email || !password || !username) return;
 		try {
 			const { user } = await createUserWithEmailAndPassword(auth, email, password);
@@ -48,7 +48,7 @@ const RegisterForm = () => {
 
 	const signInWithGoogle = async () => {
 		const user = await signInWithPopup(auth, Provider);
-		console.log(user);
+		// console.log(user);
 	};
 
 	return (

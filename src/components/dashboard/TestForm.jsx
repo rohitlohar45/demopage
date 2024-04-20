@@ -2,79 +2,74 @@ import { useEffect, useState } from "react";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
 const TestForm = ({ setTestData, initialData }) => {
-  const [formData, setFormData] = useState({
-    category: "",
-    name: "",
-    description: "",
-  });
+	const [formData, setFormData] = useState({
+		category: "",
+		name: "",
+		description: "",
+	});
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData(initialData);
-    }
-  }, [initialData]);
+	useEffect(() => {
+		if (initialData) {
+			setFormData(initialData);
+		}
+	}, [initialData]);
 
-  useEffect(() => {
-    setTestData(formData);
-  }, [formData]);
+	useEffect(() => {
+		setTestData(formData);
+	}, [formData]);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
+	const handleChange = (event) => {
+		const { name, value } = event.target;
+		setFormData((prevData) => ({ ...prevData, [name]: value }));
+	};
 
-  //   const handleImageUpload = (field, file) => {
-  //     setFormData((prevData) => ({ ...prevData, [field]: file }));
-  //   };
+	//   const handleImageUpload = (field, file) => {
+	//     setFormData((prevData) => ({ ...prevData, [field]: file }));
+	//   };
 
-  //   const handleImagesUpload = (event) => {
-  //     const imageFiles = Array.from(event.target.files);
-  //     const updatedImages = formData?.images.concat(imageFiles);
-  //     setFormData((prevData) => ({ ...prevData, images: updatedImages }));
-  //   };
+	//   const handleImagesUpload = (event) => {
+	//     const imageFiles = Array.from(event.target.files);
+	//     const updatedImages = formData?.images.concat(imageFiles);
+	//     setFormData((prevData) => ({ ...prevData, images: updatedImages }));
+	//   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData + "TestForm");
-    setTestData(formData);
-  };
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		// console.log(formData + "TestForm");
+		setTestData(formData);
+	};
 
-  return (
-    <Form onSubmit={handleSubmit}>
-      {/* Form fields */}
-      <Row className="mb-3">
-        <Col>
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            type="text"
-            name="name"
-            value={formData?.name}
-            onChange={handleChange}
-          />
-        </Col>
-        <Col>
-          <Form.Label>Category</Form.Label>
-          <select
-            name="category"
-            className="form-control"
-            value={formData?.category}
-            onChange={handleChange}
-          >
-            <option value="">Select Category</option>
-            <option value="customer">Customer</option>
-          </select>
-        </Col>
-      </Row>
-      <Form.Group controlId="description">
-        <Form.Label>Description</Form.Label>
-        <Form.Control
-          as="textarea"
-          name="description"
-          value={formData?.description}
-          onChange={handleChange}
-        />
-      </Form.Group>
-      {/* <Form.Group controlId="intro">
+	return (
+		<Form onSubmit={handleSubmit}>
+			{/* Form fields */}
+			<Row className="mb-3">
+				<Col>
+					<Form.Label>Name</Form.Label>
+					<Form.Control type="text" name="name" value={formData?.name} onChange={handleChange} />
+				</Col>
+				<Col>
+					<Form.Label>Category</Form.Label>
+					<select
+						name="category"
+						className="form-control"
+						value={formData?.category}
+						onChange={handleChange}
+					>
+						<option value="">Select Category</option>
+						<option value="customer">Customer</option>
+					</select>
+				</Col>
+			</Row>
+			<Form.Group controlId="description">
+				<Form.Label>Description</Form.Label>
+				<Form.Control
+					as="textarea"
+					name="description"
+					value={formData?.description}
+					onChange={handleChange}
+				/>
+			</Form.Group>
+			{/* <Form.Group controlId="intro">
         <Form.Label>Introduction</Form.Label>
         <Form.Control
           as="textarea"
@@ -83,7 +78,7 @@ const TestForm = ({ setTestData, initialData }) => {
           onChange={handleChange}
         />
       </Form.Group> */}
-      {/* <Row>
+			{/* <Row>
         <Col>
           <ImageInput
             label="Thumbnail"
@@ -93,7 +88,7 @@ const TestForm = ({ setTestData, initialData }) => {
           />
         </Col>
       </Row> */}
-      {/* <Row className="mb-3 mt-3">
+			{/* <Row className="mb-3 mt-3">
         <Col>
           <Form.Label>Location</Form.Label>
           <Form.Control
@@ -122,8 +117,8 @@ const TestForm = ({ setTestData, initialData }) => {
           />
         </Col>
       </Row> */}
-      {/* Display Images */}
-      {/* <Form.Group controlId="display-img">
+			{/* Display Images */}
+			{/* <Form.Group controlId="display-img">
         <Form.Label>Display Images</Form.Label>
         <Form.Control
           type="file"
@@ -134,8 +129,8 @@ const TestForm = ({ setTestData, initialData }) => {
           }}
         />
       </Form.Group> */}
-      {/* Display uploaded images */}
-      {/* {formData?.images.length > 0 && !initialData && (
+			{/* Display uploaded images */}
+			{/* {formData?.images.length > 0 && !initialData && (
         <div>
           {formData?.images.map(
             (image, index) =>
@@ -176,7 +171,7 @@ const TestForm = ({ setTestData, initialData }) => {
         </div>
       )} */}
 
-      {/* {initialData?.images && (
+			{/* {initialData?.images && (
         <div>
           {initialData?.images.map(
             (image, index) =>
@@ -199,8 +194,8 @@ const TestForm = ({ setTestData, initialData }) => {
         </div>
       )} */}
 
-      {/* BEFORE and AFTER images */}
-      {/* <Row className="mb-3">
+			{/* BEFORE and AFTER images */}
+			{/* <Row className="mb-3">
         <Col>
           <ImageInput
             label="Before Image"
@@ -218,8 +213,8 @@ const TestForm = ({ setTestData, initialData }) => {
           />
         </Col>
       </Row> */}
-      {/* Step 1 Image */}
-      {/* <Row className="mb-3">
+			{/* Step 1 Image */}
+			{/* <Row className="mb-3">
         <Col>
           <ImageInput
             label="Sketch/Plan"
@@ -245,8 +240,8 @@ const TestForm = ({ setTestData, initialData }) => {
           />
         </Col>
       </Row> */}
-    </Form>
-  );
+		</Form>
+	);
 };
 
 export default TestForm;
