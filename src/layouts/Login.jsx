@@ -6,7 +6,7 @@ import Header from "../components/dashboard/Header";
 import ResSidebar from "../components/dashboard/ResSidebar";
 import Home from "../components/dashboard/Home";
 import { useAuth } from "../firebase/auth";
-const DashboardLayout = ({ children }) => {
+const LoginLayout = ({ children }) => {
 	const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 	const { authUser } = useAuth();
 	const OpenSidebar = () => {
@@ -16,9 +16,6 @@ const DashboardLayout = ({ children }) => {
 	return (
 		<>
 			<Head>
-				<link rel="stylesheet" href="/assets/css/style-light.css" />
-				<link rel="stylesheet" href="/assets/css/dashboard.css" />
-				<link rel="stylesheet" href="/assets/css/res-dashboard.css" />
 				<link rel="stylesheet" href="/assets/css/login.css" />
 			</Head>
 
@@ -35,4 +32,4 @@ const DashboardLayout = ({ children }) => {
 	);
 };
 
-export default DashboardLayout;
+export default LoginLayout;

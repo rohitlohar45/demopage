@@ -5,9 +5,8 @@ import { auth } from "../../firebase/firebase";
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useAuth } from "../../firebase/auth";
-import Link from "next/link";
-import LoadingScreen from "../../components/Loading-Screen/loading-screen";
-import Login from "../../layouts/DashboardLayout";
+import Login from "../../layouts/Login";
+import toast from "react-hot-toast";
 
 const Provider = new GoogleAuthProvider();
 
@@ -29,8 +28,9 @@ const LoginForm = () => {
 		try {
 			await signInWithEmailAndPassword(auth, email, password);
 			router.push("/admin/dashboard");
-			console.log("Great");
+			toast.success("Login successful");
 		} catch (error) {
+			toast.error("Invalid credentials");
 			console.error("An error occured", error);
 		}
 	};
@@ -70,7 +70,10 @@ const LoginForm = () => {
 								cursor: "pointer",
 								display: "flex",
 								alignItems: "center",
+								justifyContent: "center",
 								width: "100%",
+								border: "none",
+								outline: "none",
 							}}
 							onClick={signInWithGoogle}
 						>
@@ -87,7 +90,7 @@ const LoginForm = () => {
 									name="email"
 									style={{
 										width: "100%",
-										padding: "20px",
+										padding: "10px",
 										borderRadius: "6px",
 										border: "1px solid #ccc",
 									}}
@@ -114,16 +117,29 @@ const LoginForm = () => {
 								style={{
 									marginBottom: "20px",
 									padding: "10px",
-									backgroundColor: "blue",
+									backgroundColor: "#fed0bb",
 									borderRadius: "6px",
 									cursor: "pointer",
 									display: "flex",
 									alignItems: "center",
+									justifyContent: "center",
 									width: "100%",
+									border: "none", // No border for a clean look
+									outline: "none", // No outline for a smoother UI, but maintain focus states
 								}}
 								onClick={loginHandler}
+								// disabled={loading}
 							>
-								<span style={{ fontSize: "16px", fontWeight: "bold", color: "#fff" }}>Sign in</span>
+								<span
+									style={{
+										fontSize: "16px",
+										fontWeight: "bold",
+										color: "#333",
+										textAlign: "center", // Correct alignment property for text
+									}}
+								>
+									Login
+								</span>
 							</div>
 						</div>
 					</form>

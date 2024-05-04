@@ -5,7 +5,14 @@ import { db, projectStorage } from "../../../firebase/firebase";
 import { useAuth } from "../../../firebase/auth";
 
 import { collection, addDoc, query, getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+	deleteObject,
+	getDownloadURL,
+	getStorage,
+	listAll,
+	ref,
+	uploadBytesResumable,
+} from "firebase/storage";
 import Dashboard from "../../../components/dashboard/Dashboard";
 import DashboardLayout from "../../../layouts/DashboardLayout";
 import ProjectToast from "../../../components/Toast";
@@ -182,6 +189,20 @@ export default function ProfilePage() {
 	const handleDelete = async (project) => {
 		try {
 			const projectRef = doc(db, "projects", project.id);
+			const storage = getStorage();
+			const projectFolderRef = ref(storage, "Demo");
+
+			// First, delete the storage folder contents
+			const projectFolderContents = await listAll(projectFolderRef);
+			console.log("Deleting project folder contents:", projectFolderContents);
+
+			// Delete all items (files and folders) inside the project folder
+			const deletePromises = projectFolderContents.items.map((item) => deleteObject(item));
+
+			// If there are no files, no deletePromises to process
+			if (deletePromises.length > 0) {
+				await Promise.all(deletePromises);
+			}
 			await deleteDoc(projectRef);
 
 			// Remove the project from the local state

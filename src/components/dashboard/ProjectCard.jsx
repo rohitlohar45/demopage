@@ -7,7 +7,7 @@ const ProjectCard = ({ project, onEdit, onDelete }) => {
 				<Card.Img variant="top" src={project.imageUrl} />
 				<Card.Body>
 					<Card.Title>{project.name}</Card.Title>
-					<Card.Text>{project.description}</Card.Text>
+					{/* <Card.Text>{project.description}</Card.Text> */}
 				</Card.Body>
 				<Card.Footer>
 					<div style={styles.buttons}>

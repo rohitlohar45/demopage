@@ -21,8 +21,10 @@ const Dashboard = ({
 	const [show, setShow] = useState(false);
 
 	const handleEditProject = (project) => {
-		setSelectedProject(project);
-		setShow(true);
+		if (project) {
+			setSelectedProject(project);
+			setShow(true);
+		}
 	};
 
 	useEffect(() => {
@@ -52,14 +54,14 @@ const Dashboard = ({
 		}
 	}, [searchQuery]);
 
-	const handleAddEditProject = (formData) => {
+	const handleAddEditProject = async (formData) => {
 		// Check if formData has an ID to determine if it's an add or edit action
 		if (formData.id) {
 			// Edit existing project
-			onEdit(formData);
+			await onEdit(formData);
 		} else {
 			// Add new project
-			onAddNewProject(formData);
+			await onAddNewProject(formData);
 		}
 		setSelectedProject(null); // Reset selected project after adding/editing
 	};

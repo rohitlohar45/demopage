@@ -23,8 +23,10 @@ const Dashboard_Test = ({
 	const [show, setShow] = useState(false);
 
 	const handleEditProject = (project) => {
-		setSelectedTest(project);
-		setShow(true);
+		if (project) {
+			setSelectedTest(project);
+			setShow(true);
+		}
 	};
 
 	useEffect(() => {

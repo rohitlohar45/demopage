@@ -111,11 +111,12 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 			setProjects(data);
 		}
 		fetchProjects();
-	}, []);
+		console.log("projects", projects);
+	}, [slug]);
 
 	return (
 		<>
-			{projects.length < 2 ? (
+			{projects.length < 1 ? (
 				<ComingSoon category={slug} />
 			) : (
 				<section className="works filter-img section-padding">
@@ -132,13 +133,12 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 									<div key={project.id} className="col-lg-6 items interior my-5">
 										<div className="item">
 											<div className="img">
-												<img src="/assets/img/works/1.jpg" alt="" />
+												<img src={project.thumbnail} alt="" />
 											</div>
 											<div className="cont vis">
 												<h5>
 													<Link href={`/projects/${slug}/${project.id}`}>{project.name}</Link>
 												</h5>
-												<span>{project.description}</span>
 											</div>
 										</div>
 									</div>
