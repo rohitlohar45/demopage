@@ -6,9 +6,13 @@ const BusinessQueriesTable = ({ data, itemsPerPage, currentPage, onPageChange, o
 	const startIndex = (currentPage - 1) * itemsPerPage;
 	const paginatedData = data?.slice(startIndex, startIndex + itemsPerPage);
 	const totalPages = Math.ceil(data?.length / itemsPerPage);
+	const isEmpty = data && data.length === 0;
+
+	console.log(data);
 
 	return (
 		<div style={styles.container}>
+			<h3>Business Queries</h3>
 			<Table bordered hover>
 				<thead>
 					<tr>
@@ -19,18 +23,26 @@ const BusinessQueriesTable = ({ data, itemsPerPage, currentPage, onPageChange, o
 					</tr>
 				</thead>
 				<tbody>
-					{paginatedData?.map((query, index) => (
-						<tr key={index}>
-							<td>{query.name}</td>
-							<td>{query.message}</td>
-							<td>{query.email}</td>
-							<td style={styles.actions}>
-								<Button variant="danger" onClick={() => onDelete(query)}>
-									<FiTrash />
-								</Button>
+					{isEmpty ? (
+						<tr>
+							<td colSpan="6" className="text-center">
+								No data available
 							</td>
 						</tr>
-					))}
+					) : (
+						paginatedData?.map((query, index) => (
+							<tr key={index}>
+								<td>{query.name}</td>
+								<td>{query.message}</td>
+								<td>{query.email}</td>
+								<td style={styles.actions}>
+									<Button variant="danger" onClick={() => onDelete(query)}>
+										<FiTrash />
+									</Button>
+								</td>
+							</tr>
+						))
+					)}
 				</tbody>
 			</Table>
 			{data?.length > 5 && (

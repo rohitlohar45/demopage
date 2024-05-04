@@ -1,19 +1,12 @@
 /* eslint-disable @next/next/no-css-tags */
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
-import Sidebar from "../components/dashboard/sidebar";
 import "tailwindcss/tailwind.css";
-import {
-	BsFillArchiveFill,
-	BsFillGrid3X3GapFill,
-	BsPeopleFill,
-	BsFillBellFill,
-} from "react-icons/bs";
 import Header from "../components/dashboard/Header";
 import ResSidebar from "../components/dashboard/ResSidebar";
 import Home from "../components/dashboard/Home";
 import { useAuth } from "../firebase/auth";
-const DashboardLayout = ({ children, logoClassText }) => {
+const DashboardLayout = ({ children }) => {
 	const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 	const { authUser } = useAuth();
 	const OpenSidebar = () => {
@@ -23,9 +16,10 @@ const DashboardLayout = ({ children, logoClassText }) => {
 	return (
 		<>
 			<Head>
-				<link rel="stylesheet" href="/assets/css/style-light.css" />
+				{/*<link rel="stylesheet" href="/assets/css/style-light.css" />
 				<link rel="stylesheet" href="/assets/css/dashboard.css" />
-				<link rel="stylesheet" href="/assets/css/res-dashboard.css" />
+				<link rel="stylesheet" href="/assets/css/res-dashboard.css" /> */}
+				<link rel="stylesheet" href="/assets/css/login.css" />
 			</Head>
 
 			<div className="grid-container">
@@ -37,52 +31,6 @@ const DashboardLayout = ({ children, logoClassText }) => {
 				) : null}
 				<Home children={children} />
 			</div>
-			{/* <main className="main-container">
-				<div className="main-title">
-					<h3>DASHBOARD</h3>
-				</div>
-
-				<div className="main-cards">
-					<div className="card">
-						<div className="card-inner">
-							<h3>PRODUCTS</h3>
-							<BsFillArchiveFill className="card_icon" />
-						</div>
-						<h1>300</h1>
-					</div>
-					<div className="card">
-						<div className="card-inner">
-							<h3>CATEGORIES</h3>
-							<BsFillGrid3X3GapFill className="card_icon" />
-						</div>
-						<h1>12</h1>
-					</div>
-					<div className="card">
-						<div className="card-inner">
-							<h3>CUSTOMERS</h3>
-							<BsPeopleFill className="card_icon" />
-						</div>
-						<h1>33</h1>
-					</div>
-					<div className="card">
-						<div className="card-inner">
-							<h3>ALERTS</h3>
-							<BsFillBellFill className="card_icon" />
-						</div>
-						<h1>42</h1>
-					</div>
-				</div>
-
-				<div className="charts">{children}</div>
-			</main> */}
-			{/* <div
-				style={{
-					display: "flex",
-				}}
-			>
-				<Sidebar />
-				
-			</div> */}
 		</>
 	);
 };

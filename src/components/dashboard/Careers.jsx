@@ -10,6 +10,7 @@ const CareerQueries = ({ data, itemsPerPage, currentPage, onPageChange, onDelete
 
 	return (
 		<div style={styles.container}>
+			<h3>Career Applications</h3>
 			<Table bordered hover>
 				<thead>
 					<tr>
