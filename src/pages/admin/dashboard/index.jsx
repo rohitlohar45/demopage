@@ -121,48 +121,57 @@ export default function ProfilePage() {
 		// console.log("Editing project", project);
 
 		try {
-			const { id, images, beforeImage, afterImage, process } = project;
+			const { id, images, beforeImage, afterImage, process, thumbnail } = project;
 			const uploadTasks = [];
 
 			// Upload and set URL for each image field
-			const uploadAndSetURL = async (imageField) => {
-				if (project[imageField]) {
-					const storageRef = ref(projectStorage, `${project.name}/${imageField}`);
-					const uploadTask = uploadBytesResumable(storageRef, project[imageField]);
-					await uploadTask;
-					project[imageField] = await getDownloadURL(storageRef);
+			const uploadAndSetURL = async (field, image) => {
+				if (image && !isFirebaseURL(image)) {
+					const storageRef = ref(projectStorage, `${project.name}/${field}`);
+					const uploadTask = uploadBytesResumable(storageRef, image);
+					await uploadTask; // Wait for upload to complete
+					const downloadURL = await getDownloadURL(storageRef);
+					return downloadURL; // Return the download URL of the uploaded image
 				}
+				return image; // If it's already a Firebase URL, return it as is
 			};
 
-			// Upload images that are added or updated
-			// Update beforeImage if changed
+			// Check if a given URL is a Firebase URL
+			const isFirebaseURL = (url) => {
+				if (typeof url === "string" && url.includes("http")) return true;
+				return false;
+			};
+
+			// Update specific image fields if they are new
 			if (beforeImage) {
-				await uploadAndSetURL("beforeImage");
+				project.beforeImage = await uploadAndSetURL("beforeImage", beforeImage);
 			}
-			// Update afterImage if changed
+
 			if (afterImage) {
-				await uploadAndSetURL("afterImage");
+				project.afterImage = await uploadAndSetURL("afterImage", afterImage);
 			}
-			// Update thumbnail if changed
-			if (project.thumbnail) {
-				await uploadAndSetURL("thumbnail");
+
+			if (thumbnail) {
+				project.thumbnail = await uploadAndSetURL("thumbnail", thumbnail);
 			}
-			// Update process step images if changed
+
+			// Process steps
 			for (let i = 1; i <= 3; i++) {
 				const stepField = `process.step${i}`;
-				if (process && process[`step${i}`]) {
-					await uploadAndSetURL(stepField);
+				if (process && process[`step${i}`] && !isFirebaseURL(process[`step${i}`])) {
+					project.process[`step${i}`] = await uploadAndSetURL(stepField, process[`step${i}`]);
 				}
 			}
 
-			// Upload additional images
+			// Additional images
 			for (let i = 0; i < images.length; i++) {
-				const storageRef = ref(projectStorage, `${project.name}/${i}`);
-				const uploadTask = uploadBytesResumable(storageRef, images[i]);
-				await uploadTask;
-				const url = await getDownloadURL(storageRef);
-				project.images[i] = url;
-				uploadTasks.push(uploadTask);
+				if (!isFirebaseURL(images[i])) {
+					const storageRef = ref(projectStorage, `${project.name}/image${i}`);
+					const uploadTask = uploadBytesResumable(storageRef, images[i]);
+					await uploadTask; // Wait for each upload task
+					project.images[i] = await getDownloadURL(storageRef); // Get the download URL
+					uploadTasks.push(uploadTask); // Add to upload tasks
+				}
 			}
 
 			// Wait for all upload tasks to complete
