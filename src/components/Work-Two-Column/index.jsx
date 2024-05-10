@@ -88,28 +88,38 @@ const demoprojects = [
 ];
 
 export const WorkTwoColumn = ({ slug = "" }) => {
-	useEffect(() => {
-		setTimeout(() => {
-			if (window.Isotope) initIsotope();
-		}, 1000);
-	}, []);
-
 	const [projects, setProjects] = useState([]);
+	const [state, setState] = useState("loading");
 
-	useEffect(() => {
-		async function fetchProjects() {
+	async function fetchProjects() {
+		try {
+			setState("loading");
 			const q = query(collection(db, "projects"), where("category", "==", slug));
 
 			const querySnapshot = await getDocs(q);
 
 			let data = [];
 			querySnapshot.forEach((project) => {
-				// console.log(project.data());
 				data.push({ ...project.data(), id: project.id });
 			});
 
+			setState("loaded");
 			setProjects(data);
+		} catch (e) {
+			console.log(e);
+			setState("error");
+		} finally {
+			setState("loaded");
 		}
+	}
+
+	useEffect(() => {
+		setTimeout(() => {
+			if (window.Isotope) initIsotope();
+		}, 1000);
+	}, [projects, state]);
+
+	useEffect(() => {
 		fetchProjects();
 		console.log("projects", projects);
 	}, [slug]);
@@ -128,92 +138,23 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 									<span>Our Recent Projects in {slug}</span>
 								</div>
 							</div>
-							<div>
-								{projects.map((project) => (
-									<div key={project.id} className="col-lg-6 items interior my-5">
+
+							{projects &&
+								projects.map((project) => (
+									<div key={project.id} className="col-lg-6 items my-5 residential">
 										<div className="item">
 											<div className="img">
-												<img src={project.thumbnail} alt="" />
+												<img src={project.thumbnail} alt="thumbnail" />
 											</div>
 											<div className="cont vis">
 												<h5>
 													<Link href={`/projects/${slug}/${project.id}`}>{project.name}</Link>
 												</h5>
+												<p>{project.intro}</p>
 											</div>
 										</div>
 									</div>
 								))}
-							</div>
-							{/* <div className="col-lg-6 items theaters">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/2.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items residential interior">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/1.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items interior">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/5.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items residential">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/3.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6 items theaters">
-              <div className="item">
-                <div className="img">
-                  <img src="/assets/img/works/4.jpg" alt="" />
-                </div>
-                <div className="cont vis">
-                  <h5>
-                    <Link href="/project-details">Modern Townhouse</Link>
-                  </h5>
-                  <span>Architecture</span>
-                  <span>Modern</span>
-                </div>
-              </div>
-            </div> */}
 						</div>
 					</div>
 				</section>
