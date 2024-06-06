@@ -83,8 +83,8 @@ const beforeAndAfterSlider = () => {
 
 		function slideIt(x) {
 			let transform = Math.max(0, Math.min(x, slider.offsetWidth));
-			before.style.width = transform + "px";
-			resizer.style.left = transform - 0 + "px";
+			if (before.style) before.style.width = transform + "px";
+			if (resizer.style) resizer.style.left = transform - 0 + "px";
 		}
 
 		function pauseEvent(e) {
