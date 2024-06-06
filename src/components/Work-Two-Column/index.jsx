@@ -106,7 +106,7 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 			setState("loaded");
 			setProjects(data);
 		} catch (e) {
-			console.log(e);
+			// console.log(e);
 			setState("error");
 		} finally {
 			setState("loaded");
@@ -114,14 +114,8 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 	}
 
 	useEffect(() => {
-		setTimeout(() => {
-			if (window.Isotope) initIsotope();
-		}, 1000);
-	}, [projects, state]);
-
-	useEffect(() => {
 		fetchProjects();
-		console.log("projects", projects);
+		// console.log("projects", projects);
 	}, [slug]);
 
 	return (
@@ -131,20 +125,26 @@ export const WorkTwoColumn = ({ slug = "" }) => {
 			) : (
 				<section className="works filter-img section-padding">
 					<div className="container">
-						<div className="row gallery">
-							<div className="col-lg-6 items mt-0 interior theaters residential">
-								<div className="section-head mb-0">
-									<h3>Works</h3>
-									<span>Our Recent Projects in {slug}</span>
-								</div>
+						<div className="col-lg-6 items mt-0 interior theaters residential">
+							<div className="section-head mb-0">
+								<h3>Works</h3>
+								<span>Our Recent Projects in {slug}</span>
 							</div>
+						</div>
 
+						<div className="row gallery">
 							{projects &&
 								projects.map((project) => (
 									<div key={project.id} className="col-lg-6 items my-5 residential">
-										<div className="item">
+										<div className="item fixed-height">
 											<div className="img">
-												<img src={project.thumbnail} alt="thumbnail" />
+												<Link href={`/projects/${slug}/${project.id}`}>
+													<img
+														src={project.thumbnail}
+														alt="thumbnail"
+														className="fixed-height-img"
+													/>
+												</Link>
 											</div>
 											<div className="cont vis">
 												<h5>

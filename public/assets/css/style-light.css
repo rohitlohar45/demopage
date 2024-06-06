@@ -2756,6 +2756,26 @@ body {
   padding: 0 15px;
 }
 
+.fixed-height {
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.fixed-height-img {
+  height: 35vh;
+  object-fit: cover;
+  width: 100%;
+}
+
+.fixed-height:hover {
+  transform: scale(1.1);
+}
+
+.fixed-height:hover h5 {
+  color: #b23a48;
+}
+
 .portfolio .gallery .items .item-img {
   overflow: hidden;
   position: relative;

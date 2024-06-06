@@ -16,7 +16,7 @@ const beforeAndAfterSlider = () => {
 
 		window.addEventListener("resize", function () {
 			let width = slider.offsetWidth;
-			beforeImage.style.width = width + "px";
+			if (beforeImage) beforeImage.style.width = width + "px";
 		});
 
 		resizer.addEventListener("mousedown", function () {
