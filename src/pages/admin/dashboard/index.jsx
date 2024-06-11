@@ -97,20 +97,12 @@ export default function ProfilePage() {
 				project.images[i] = url;
 				uploadTasks.push(uploadTask);
 			}
-
-			// Wait for all upload tasks to complete
 			await Promise.all(uploadTasks);
-
-			// Add the project to the Firestore "projects" collection
 			const projectRef = await addDoc(collection(db, "projects"), project);
 			toast.success("Project created successfully");
-			// console.log("Project created successfully with ID:", projectRef.id);
 
-			// Optionally, notify user or perform other actions after successful creation
-			setProjects([...projects, project]);
-
-			// Clear input fields or reset form data
-			// Example: setName(""), setDescription(""), setFile(null), etc.
+			const newProject = { ...project, id: projectRef.id };
+			setProjects([...projects, newProject]);
 		} catch (error) {
 			toast.error("An error occurred while creating the project");
 			console.error("An error occurred while creating the project", error);
@@ -129,14 +121,13 @@ export default function ProfilePage() {
 				if (image && !isFirebaseURL(image)) {
 					const storageRef = ref(projectStorage, `${project.name}/${field}`);
 					const uploadTask = uploadBytesResumable(storageRef, image);
-					await uploadTask; // Wait for upload to complete
+					await uploadTask;
 					const downloadURL = await getDownloadURL(storageRef);
-					return downloadURL; // Return the download URL of the uploaded image
+					return downloadURL;
 				}
-				return image; // If it's already a Firebase URL, return it as is
+				return image;
 			};
 
-			// Check if a given URL is a Firebase URL
 			const isFirebaseURL = (url) => {
 				if (typeof url === "string" && url.includes("http")) return true;
 				return false;

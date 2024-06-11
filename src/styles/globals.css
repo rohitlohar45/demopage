@@ -388,7 +388,7 @@ body.hideX .pace {
 .arrow {
   margin-right: 5px;
   opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease; 
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 ul li a {
@@ -397,11 +397,11 @@ ul li a {
 
 ul li a:hover .arrow {
   opacity: 1;
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 ul li a:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
 }
 
 /* ################## Contact Us ##################  */
@@ -410,18 +410,18 @@ ul li a:hover {
 .call-us-box,
 .email-us-box,
 .address-box {
-  border: 1px solid  #b23a48;
+  border: 1px solid #b23a48;
   border-radius: 5px;
   padding: 20px;
-  margin-bottom: 20px; 
-  height: 200px; 
-  overflow: hidden; 
-  transition: background-color 0.3s, transform 0.3s; 
+  margin-bottom: 20px;
+  height: 200px;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .call-us-box:hover,
 .email-us-box:hover,
 .address-box:hover {
-  background-color: #FFA7AD; 
-  transform: scale(1.05); 
+  background-color: #FFA7AD;
+  transform: scale(1.05);
 }
