@@ -14,7 +14,7 @@ a,
   display: none !important;
 }
 
-.testimonials.grid .testim .slick-track .slick-active>div {
+.testimonials.grid .testim .slick-track .slick-active > div {
   position: relative;
   margin: 0 20px;
 }
@@ -52,11 +52,10 @@ a,
   z-index: 2;
 }
 
-
 .circle {
   padding: 15px 15px;
   border-radius: 50%;
-  background-color: #ED8D8D;
+  background-color: #ed8d8d;
   color: #fff;
   max-height: 100px;
   z-index: 2;
@@ -69,7 +68,7 @@ a,
 .how-it-works.row .col-2::after {
   content: "";
   position: absolute;
-  border-left: 3px solid #ED8D8D;
+  border-left: 3px solid #ed8d8d;
   z-index: 1;
 }
 
@@ -90,14 +89,13 @@ a,
   top: 0;
 }
 
-
 .timeline div {
   padding: 0;
   height: 40px;
 }
 
 .timeline hr {
-  border-top: 3px solid #ED8D8D;
+  border-top: 3px solid #ed8d8d;
   margin: 0;
   top: 17px;
   position: relative;
@@ -109,7 +107,7 @@ a,
 }
 
 .timeline .corner {
-  border: 3px solid #ED8D8D;
+  border: 3px solid #ed8d8d;
   width: 100%;
   position: relative;
   border-radius: 15px;
@@ -134,7 +132,6 @@ a,
   left: 50%;
   top: calc(50% - 3px);
 }
-
 
 .twentytwenty-handle:before,
 .twentytwenty-handle:after {
@@ -242,6 +239,10 @@ a.col-lg-4.col-xl-3.col-md-6 {
   padding-right: 5px;
   margin-bottom: 10px;
 }
+/* Prevent scrolling when the modal is open */
+body.modal-open {
+  overflow: hidden;
+}
 
 .twentytwenty-before-label,
 .twentytwenty-after-label {
@@ -306,7 +307,7 @@ a.col-lg-4.col-xl-3.col-md-12 {
   z-index: 55;
 }
 
-.testimonials2 .slick-slide>div {
+.testimonials2 .slick-slide > div {
   padding: 0 10px !important;
 }
 
@@ -406,7 +407,6 @@ ul li a:hover {
 
 /* ################## Contact Us ##################  */
 
-
 .call-us-box,
 .email-us-box,
 .address-box {
@@ -422,6 +422,6 @@ ul li a:hover {
 .call-us-box:hover,
 .email-us-box:hover,
 .address-box:hover {
-  background-color: #FFA7AD;
+  background-color: #ffa7ad;
   transform: scale(1.05);
 }
