@@ -55,86 +55,89 @@ class Testimonials1 extends React.Component {
 	render() {
 		return (
 			<>
-				<section
-					className={`testimonials grid section-padding ${
-						this.props.withBg ? "bg-img parallaxie" : ""
-					}`}
-					style={{
-						backgroundImage: this.props.withBg ? `url(/assets/img/001.jpg)` : "none",
-					}}
-					data-overlay-dark={this.props.withBg ? 9 : null}
-				>
-					<div className="container">
-						{!this.props.bigTitle && (
-							<div className="section-head text-center">
-								<div className="row justify-content-center">
-									<div className="col-lg-6 col-md-8 col-sm-10">
-										<h6 className="wow fadeInDown" data-wow-delay=".3s">
-											Testimonials
-										</h6>
-										<h4 className="playfont wow flipInX" data-wow-delay=".5s">
-											What People Says?
-										</h4>
+				{this.state.testimonials.length === 0 ? (
+					<></>
+				) : (
+					<section
+						className={`testimonials grid section-padding ${this.props.withBg ? "bg-img parallaxie" : ""
+							}`}
+						style={{
+							backgroundImage: this.props.withBg ? `url(/assets/img/001.jpg)` : "none",
+						}}
+						data-overlay-dark={this.props.withBg ? 9 : null}
+					>
+						<div className="container">
+							{!this.props.bigTitle && (
+								<div className="section-head text-center">
+									<div className="row justify-content-center">
+										<div className="col-lg-6 col-md-8 col-sm-10">
+											<h6 className="wow fadeInDown" data-wow-delay=".3s">
+												Testimonials
+											</h6>
+											<h4 className="playfont wow flipInX" data-wow-delay=".5s">
+												What People Says?
+											</h4>
+										</div>
 									</div>
 								</div>
-							</div>
-						)}
+							)}
 
-						<div className="row">
-							<div className="col-lg-12">
-								<Slider
-									className="testim"
-									{...{
-										ref: (c) => (this.slider = c),
-										dots: false,
-										arrows: true,
-										autoplay: true,
-										rows: 1,
-										slidesToScroll: 1,
-										slidesToShow: 2,
-										responsive: [
-											{
-												breakpoint: 1024,
-												settings: {
-													slidesToShow: 2,
+							<div className="row">
+								<div className="col-lg-12">
+									<Slider
+										className="testim"
+										{...{
+											ref: (c) => (this.slider = c),
+											dots: false,
+											arrows: true,
+											autoplay: true,
+											rows: 1,
+											slidesToScroll: 1,
+											slidesToShow: 2,
+											responsive: [
+												{
+													breakpoint: 1024,
+													settings: {
+														slidesToShow: 2,
+													},
 												},
-											},
-											{
-												breakpoint: 767,
-												settings: {
-													slidesToShow: 1,
+												{
+													breakpoint: 767,
+													settings: {
+														slidesToShow: 1,
+													},
 												},
-											},
-											{
-												breakpoint: 480,
-												settings: {
-													slidesToShow: 1,
+												{
+													breakpoint: 480,
+													settings: {
+														slidesToShow: 1,
+													},
 												},
-											},
-										],
-									}}
-								>
-									{this.state.testimonials.map((item) => (
-										<div className="item wow fadeInUp" data-wow-delay=".3s" key={item.id}>
-											<span className="quote-icon">
-												<img src="/assets/img/clients/quote.svg" alt="" />
-											</span>
-											<div className="cont">
-												<p className="">&quot;{item.description}&quot;</p>
+											],
+										}}
+									>
+										{this.state.testimonials.map((item) => (
+											<div className="item wow fadeInUp" data-wow-delay=".3s" key={item.id}>
+												<span className="quote-icon">
+													<img src="/assets/img/clients/quote.svg" alt="" />
+												</span>
+												<div className="cont">
+													<p className="">&quot;{item.description}&quot;</p>
+												</div>
+												<div className="info">
+													<h6>
+														{item.name} <span>{item.category}</span>
+													</h6>
+												</div>
 											</div>
-											<div className="info">
-												<h6>
-													{item.name} <span>{item.category}</span>
-												</h6>
-											</div>
-										</div>
-									))}
-								</Slider>
-								{this.renderArrows()}
+										))}
+									</Slider>
+									{this.renderArrows()}
+								</div>
 							</div>
 						</div>
-					</div>
-				</section>
+					</section>
+				)}
 			</>
 		);
 	}

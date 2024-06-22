@@ -2,16 +2,16 @@
   {
     "id": "01",
     "title": "Architecture",
-    "content": "Architecture involves the art and science of designing and constructing buildings, structures, and spaces. Architects use creativity, technical knowledge, and problem-solving skills to create functional and aesthetically pleasing environments that meet the needs of people and communities. From designing residential homes to large-scale commercial developments, architecture plays a crucial role in shaping the world around us."
+    "content": "Architecture is the art and science of designing and constructing buildings and spaces. Architects blend creativity and technical knowledge to create functional and aesthetically pleasing environments for residential and commercial use."
   },
   {
     "id": "02",
     "title": "Interior Design",
-    "content": "Interior design focuses on creating functional and visually appealing interior spaces. Interior designers work with clients to understand their needs, preferences, and budgets to transform spaces into inviting and comfortable environments. They consider factors such as layout, color schemes, furniture, lighting, and accessories to enhance the functionality and aesthetics of residential, commercial, and institutional spaces."
+    "content": "Interior design involves creating functional and visually appealing spaces. Designers work with clients to transform interiors by considering layout, color schemes, furniture, and lighting to enhance both residential and commercial spaces."
   },
   {
     "id": "03",
     "title": "3D Modeling",
-    "content": "3D modeling is the process of creating three-dimensional digital representations of objects, environments, and characters. It is used in various industries, including animation, gaming, architecture, engineering, and product design. 3D modelers use specialized software to build and manipulate virtual objects, allowing for realistic simulations, visualizations, and presentations. From architectural renderings to animated characters, 3D modeling enables creators to bring their ideas to life in immersive and interactive ways."
+    "content": "3D modeling involves creating digital representations of objects and environments. Used in animation, gaming, architecture, and product design, it allows for realistic simulations and visualizations."
   }
 ]

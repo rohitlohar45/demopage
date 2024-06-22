@@ -136,7 +136,7 @@ const ContactWithCareer = () => {
 							<p className="text-center" style={{ marginBottom: "10px" }}>
 								We are always looking for talented individuals to join our team. If you are
 								passionate about design and architecture, we would love to hear from you. Please
-								fill out the form below and attach your resume.
+								fill out the form below and attach your <b> Resume/CV </b>.
 							</p>
 						</div>
 
