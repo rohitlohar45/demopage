@@ -186,7 +186,7 @@ const Footer = ({ classText }) => {
                 </Link>
               </div> */}
               <div className="copy-right">
-                <p>© 2024, Peace Interiors.</p>
+                <p>© {new Date().getFullYear()}, Peace Interiors.</p>
               </div>
             </div>
           </div>
