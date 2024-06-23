@@ -186,7 +186,7 @@ const Footer = ({ classText }) => {
                 </Link>
               </div> */}
               <div className="copy-right">
-                <p>© 2023, Peace Interiors.</p>
+                <p>© 2024, Peace Interiors.</p>
               </div>
             </div>
           </div>
