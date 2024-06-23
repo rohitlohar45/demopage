@@ -80,9 +80,9 @@ export default function ProfilePage() {
 				"beforeImage",
 				"afterImage",
 				"thumbnail",
-				"process.step1",
-				"process.step2",
-				"process.step3",
+				// "process.step1",
+				// "process.step2",
+				// "process.step3",
 			];
 			for (const field of imageFields) {
 				await uploadAndSetURL(field);

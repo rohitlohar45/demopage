@@ -49,7 +49,7 @@ const ProjectForm = ({ setProjectData, initialData }) => {
 		year: "",
 		area: "",
 		images: [],
-		process: { step1: null, step2: null, step3: null },
+		// process: { step1: null, step2: null, step3: null },
 		beforeImage: null,
 		afterImage: null,
 	});
