@@ -118,7 +118,7 @@ const ProjectDetails = () => {
           onClick={closeModal}
           style={{ cursor: "pointer", width: "100%", height: "100%" }}
         >
-          <img
+          <img      
             src={currentImage}
             style={{ width: "100%", height: "auto" }}
             alt="Popup"

@@ -136,8 +136,12 @@ export const WorkTwoColumn = ({ slug = "" }) => {
           <div className="container">
             <div className="col-lg-6 items mt-0 interior theaters residential">
               <div className="section-head mb-0">
-                <h3>Works</h3>
-                <span>Our Recent Projects in {slug}</span>
+                <h4 className="playfont wow flipInX" data-wow-delay=".5s">
+                  Works
+                </h4>
+                <h6 className="custom-font wow fadeInDown" data-wow-delay=".3s">
+                  Our Recent Projects in {slug}
+                </h6>
               </div>
             </div>
 

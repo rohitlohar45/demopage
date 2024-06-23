@@ -8,7 +8,6 @@
 @import "/assets/css/ionicons.min.css";
 @import "/assets/css/pe-icon-7-stroke.css";
 
-
 /* ====================== [ Start Typography ] ====================== */
 * {
   margin: 0;
@@ -17,7 +16,6 @@
   box-sizing: border-box;
   outline: none;
   list-style: none;
-
 }
 
 body {
@@ -74,7 +72,6 @@ h6 {
   line-height: 1.4;
   font-weight: 600;
 }
-
 
 #project-image {
   width: 200px !important;
@@ -185,7 +182,7 @@ span:hover {
 }
 
 .section-padding {
-  padding: 120px 0;
+  padding: 70px 0;
 }
 
 .section-ptb {
@@ -2782,7 +2779,7 @@ body {
   height: 440px;
 }
 
-.portfolio .gallery .items .item-img>a {
+.portfolio .gallery .items .item-img > a {
   display: block;
 }
 
@@ -4504,7 +4501,7 @@ body {
 }
 
 .contact .form {
-  padding: 120px 5%;
+  padding: 70px 5%;
 }
 
 .contact .form input,
@@ -5166,7 +5163,7 @@ footer .item .copy-right p a {
     width: 15px;
   }
 
-  .brands .box-top .row>div {
+  .brands .box-top .row > div {
     width: 50%;
   }
 
