@@ -1,0 +1,79 @@
+.cont-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.contact-form {
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.section-head {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.google-login:hover {
+    background-color: #444;
+}
+
+.google-login-icon {
+    margin-right: 10px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 25px !important;
+    margin: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 480px) {
+    .contact-form {
+        max-width: 350px;
+        padding: 30px;
+    }
+
+    .input-field,
+    .button,
+    .google-login {
+        padding: 12px;
+        font-size: 14px;
+    }
+}

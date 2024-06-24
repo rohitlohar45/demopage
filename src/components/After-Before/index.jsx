@@ -2,7 +2,7 @@
 import React from "react";
 import beforeAndAfterSlider from "../../common/beforeAndAfterSlider";
 
-const AfterBefore = () => {
+const AfterBefore = ({ afterImage, beforeImage }) => {
   React.useEffect(() => {
     beforeAndAfterSlider();
   });
@@ -34,17 +34,17 @@ const AfterBefore = () => {
                 <div className="overlay" />
                 <div
                   className="twentytwenty-before-label"
-                  data-content="Before"
+                  data-content="Without Light"
                 ></div>
                 <div
                   className="twentytwenty-after-label"
-                  data-content="After"
+                  data-content="With Light  "
                 ></div>
                 <div id="before-image">
-                  <img src="/assets/img/before.jpg" alt="before" />
+                  {beforeImage && <img src={beforeImage} alt="before" />}
                 </div>
                 <div id="after-image">
-                  <img src="/assets/img/after.jpg" alt="After" />
+                  <img src={afterImage} alt="After" />
                 </div>
                 <div id="resizer" className="twentytwenty-handle">
                   <span className="twentytwenty-left-arrow"></span>

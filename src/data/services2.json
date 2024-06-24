@@ -2,16 +2,16 @@
   {
     "id": "01",
     "title": "Architecture",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "content": "Architecture is the art and science of designing and constructing buildings and spaces. Architects blend creativity and technical knowledge to create functional and aesthetically pleasing environments for residential and commercial use."
   },
   {
     "id": "02",
     "title": "Interior Design",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "content": "Interior design involves creating functional and visually appealing spaces. Designers work with clients to transform interiors by considering layout, color schemes, furniture, and lighting to enhance both residential and commercial spaces."
   },
   {
     "id": "03",
     "title": "3D Modeling",
-    "content": "Cras mollis turpis a ipsum ultes, nec cond imentum ipsum consequat."
+    "content": "3D modeling involves creating digital representations of objects and environments. Used in animation, gaming, architecture, and product design, it allows for realistic simulations and visualizations."
   }
 ]

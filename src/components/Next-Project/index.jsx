@@ -10,6 +10,7 @@ const NextProject = () => {
           <div className="col-md-12">
             <div className="content text-center">
               <Link href="/project-details">
+                {/* Link the next Project */}
                 <a>
                   <Split>
                     <h6

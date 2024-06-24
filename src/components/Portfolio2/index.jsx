@@ -15,52 +15,45 @@ const Portfolio2 = () => {
               <h6 className="custom-font">Interior</h6>
               <h5>Exterior Designs</h5>
             </div>
-            <div className="more">
-              <Link href="/project-details">
-                <a>
-                  View Project <i className="fas fa-chevron-right"></i>
-                </a>
-              </Link>
-            </div>
           </div>
           <div className="col-lg-3 col-md-6 cluom" data-tab="tab-2">
             <div className="info">
               <h6 className="custom-font">Interior</h6>
               <h5>Maroon Beach Hotel</h5>
             </div>
-            <div className="more">
+            {/* <div className="more">
               <Link href="/project-details">
                 <a>
                   View Project <i className="fas fa-chevron-right"></i>
                 </a>
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="col-lg-3 col-md-6 cluom" data-tab="tab-3">
             <div className="info">
               <h6 className="custom-font">Interior</h6>
               <h5>Apartment Renovation</h5>
             </div>
-            <div className="more">
+            {/* <div className="more">
               <Link href="/project-details">
                 <a>
                   View Project <i className="fas fa-chevron-right"></i>
                 </a>
               </Link>
-            </div>
+            </div> */}
           </div>
           <div className="col-lg-3 col-md-6 cluom" data-tab="tab-4">
             <div className="info">
               <h6 className="custom-font">Interior</h6>
               <h5>Modern Minimalist House</h5>
             </div>
-            <div className="more">
+            {/* <div className="more">
               <Link href="/project-details">
                 <a>
                   View Project <i className="fas fa-chevron-right"></i>
                 </a>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
